@@ -1,20 +1,319 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Project</title>
+    <title>strackovski | gallery</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8"> 
-    <script type="text/javascript" src="assets/scripts/jquery-1.11.1.js"></script>
-    <script type="text/javascript" src="assets/scripts/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/scripts/main.js"></script>
-
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Welcome | strackovski</title>
     <link rel="stylesheet" href="assets/fonts/font-awesome-4.2.0/css/font-awesome.css"/>
     <link rel="stylesheet" href="assets/styles/reset.css"/>
     <link rel="stylesheet" href="assets/styles/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/styles/slider.css"/>
+    <link rel="stylesheet" href="assets/styles/jquery.jscrollpane.css"/>
     <link rel="stylesheet" href="assets/styles/main.css"/>
 </head>
 
 <body>
-<h1>Hello, World!</h1>
+<div class="bg bgh"></div>
+<img class="bg bg1 shown-bg" src="assets/images/bg1-4.png" alt="bg"/>
+<img class="bg bg2" src="assets/images/bg2-6.png" alt="bg"/>
+<img src="assets/images/bg1-brush.png" class="brush shown-brush" alt=""/>
+
+<header class="head0 shown-header">
+    <div class="inner-header">
+        <ul>
+            <li class="active">
+                <a href="#" class="go logo t0"><img src="assets/images/sig-1-bb.png" alt="Strackovski Logo"/></a>
+            </li>
+            <li>
+                <a href="#" class="go t1"><img src="assets/images/txt-gallery-b.png" alt="Gallery"/></a>
+            </li>
+            <li>
+                <a href="#" class="go t2"><img src="assets/images/txt-about-b.png" alt="About"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="stamp-link t3"><img src="assets/images/behance.png" alt="Behance badge"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="t3"><img src="assets/images/txt-contact-b.png" alt="Contact"/></a>
+            </li>
+        </ul>
+    </div>
+</header>
+<header class="head1">
+    <div class="inner-header">
+        <ul>
+            <li>
+                <a href="#" class="go logo t0"><img src="assets/images/sig-1.png" alt="Strackovski Logo"/></a>
+            </li>
+            <li class="active">
+                <a href="#" class="go t1"><img src="assets/images/txt-gallery-bb.png" alt="Gallery"/></a>
+            </li>
+            <li>
+                <a href="#" class="go t2"><img src="assets/images/txt-about-b.png" alt="About"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="stamp-link t3"><img src="assets/images/behance.png" alt="Behance badge"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="t3"><img src="assets/images/txt-contact-b.png" alt="Contact"/></a>
+            </li>
+        </ul>
+    </div>
+</header>
+<header class="head2">
+    <div class="inner-header">
+        <ul>
+            <li>
+                <a href="#" class="go logo t0"><img src="assets/images/sig-2.png" alt="Strackovski Logo"/></a>
+            </li>
+            <li>
+                <a href="#" class="go t1"><img src="assets/images/txt-gallery-g.png" alt="Gallery"/></a>
+            </li>
+            <li class="active">
+                <a href="#" class="go t2"><img src="assets/images/txt-about-gg.png" alt="About"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="stamp-link t3"><img src="assets/images/behance.png" alt="Behance badge"/></a>
+            </li>
+            <li class="pull-right">
+                <a href="#" class="t3"><img src="assets/images/txt-contact-g.png" alt="Contact"/></a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="ho ho1 shown-ho"></div>
+<div class="ho ho2"></div>
+<div class="holder">
+    <div class="con con0 shown-con">
+        <div id="ca-container" class="ca-container">
+            <div class="ca-wrapper">
+                <div class="ca-item ca-item-1">
+                    <div class="ca-item-main">
+                        <div class="ca-icon"></div>
+                    </div>
+                </div>
+                <div class="ca-item ca-item-2">
+                    <div class="ca-item-main">
+                        <div class="ca-icon"></div>
+                    </div>
+                </div>
+                <div class="ca-item ca-item-3">
+                    <div class="ca-item-main">
+                        <div class="ca-icon"></div>
+                    </div>
+                </div>
+                <div class="ca-item ca-item-4">
+                    <div class="ca-item-main">
+                        <div class="ca-icon"></div>
+                    </div>
+                </div>
+                <div class="ca-item ca-item-5">
+                    <div class="ca-item-main">
+                        <div class="ca-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="con con1">
+        <div class="row">
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="Gentleman number 1">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="Gentleman number 2">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="kakak">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="pappa">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="pappa">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-xs-4">
+                <div class="thumb">
+                    <img src="assets/images/gent1.jpg" alt="img"/>
+                    <div class="preview" data-title="pappa">
+                        <i class="fa fa-search fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="con con2">
+        <div class="about-section">
+            <div class="more"><a href="#"><img src="assets/images/arrow2.png" alt="More"/></a></div>
+            <div class="section shown-section">
+                <h1><img src="assets/images/txt-author-b.png" alt="The Author"/></h1>
+                <div class="row">
+                    <div class="col-sm-11 col-lg-10 col-xs-12">
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p>
+                        <p>
+                            Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+                            exercitationem
+                            ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                            reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
+                            fugiat quo voluptas nulla pariatur?
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="section hidden-section">
+                <h1>The Work</h1>
+
+                <div class="row">
+                    <div class="col-sm-11 col-lg-10 col-xs-12">
+                        <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                        </p>
+                        <p>
+                            Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                            incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+                            exercitationem
+                            ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure
+                            reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
+                            fugiat quo voluptas nulla pariatur?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="shown-footer">
+    <div class="inner-footer">
+        <div class="row">
+            <div class="col-xs-4">
+                <ul>
+                    <li>
+                        <a href="#" class="go t1">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#" class="go t2">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-4 text-center">
+                <a href="#" class="open_signup">
+                <i class="fa fa-angle-up fa-2x"></i>
+                <br/>
+                GET NOTIFIED ABOUT
+                <br/>
+                NEW ADDITIONS
+                </a>
+            </div>
+            <div class="col-xs-4 text-right">
+
+                <img class="stamp stamp1 shown-stamp" src="assets/images/logo-stamp.png" alt="Logo Stamp"/>
+                <img class="stamp stamp2" src="assets/images/logo-stamp2.png" alt="Logo Stamp"/>
+                <div class="legal">
+                    <p>
+                        Copyright 2015 Stevo Strackovski
+                    </p>
+                    <p><a href="#">Legal information</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="shadow"></div>
+<div class="first-shadow">
+    <div class="spinner-wrap">
+        <div class="spinner">
+            <img src="assets/images/ss-spinner.png" alt="logo"/>
+        </div>
+    </div>
+</div>
+<div class="signup">
+    <a href="#" class="close_signup">
+        <i class="fa fa-angle-down fa-2x"></i>
+    </a>
+    <span>
+        GET NOTIFIED ABOUT
+        <br/>
+        NEW ADDITIONS
+    </span>
+
+    <form method="post" action="#" id="signup-form">
+        <div class="form-group">
+            <input type="text" class="form-control" id="user_email" placeholder="my@email.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'my@email.com'" value=""/>
+            <span class="error-msg hidden-msg"> Please enter a correct email address.</span>
+        </div>
+
+        <button type="submit" class="btn btn-default">SUBSCRIBE NOW</button>
+    </form>
+
+</div>
+<!-- Modal -->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="assets/images/gent1.jpg" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="col-xs-4">i</div>
+        <div class="col-xs-4 title"></div>
+        <div class="col-xs-4"><a href="#" class="popover-link" data-toggle="popover" title="Share this" data-content="Share links..."><i class="fa fa-share"></i></a></div>
+    </div>
+
+    <div class="modal-close" data-dismiss="modal"><span>Escape to close</div>
+    <div class="modal-prev modal-controls"><i class="fa fa-angle-left fa-4x"></i></div>
+    <div class="modal-next modal-controls"><i class="fa fa-angle-right fa-4x"></i></div>
+</div>
+
+<script type="text/javascript" src="assets/scripts/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="assets/scripts/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="assets/scripts/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="assets/scripts/jquery.contentcarousel.js"></script>
+<script type="text/javascript" src="assets/scripts/bootstrap.js"></script>
+<script type="text/javascript" src="assets/scripts/main.js"></script>
+
 </body>
 </html>
