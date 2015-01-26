@@ -99,6 +99,42 @@ $(document).ready(function() {
     $('#ca-container').contentcarousel();
     footer = $('footer');
 
+
+
+    var contactForm = $('#contact-form');
+    contactForm.submit(function (e) {
+        e.preventDefault();
+        var name = $('#contact_name').val();
+        var email = $('#contact_email').val();
+        var msg = $('#contact_msg').val();
+
+
+        if(email && isValidEmailAddress(email) && name && msg) {
+            $.ajax({
+                url: "http://haisdhiashdiasd.com",
+                beforeSend: function( xhr ) {
+                    //xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                    $('.contact form').replaceWith('<span class="msg">Processing...</span>')
+
+                }
+            })
+                .done(function( data ) {
+
+                })
+                .error(function (error) {
+                    setTimeout(function () {
+                        $('.contact .msg').html('Thank you for your message! We will get back to you as soon as possible.');
+                        $('.contact').append('<a href="#" class="btn btn-default close-form">Close</a>')
+                    }, 2000)
+                })
+
+
+        } else {
+            contactForm.addClass('errors');
+        }
+    });
+
+
     var form = $('#signup-form');
     form.submit(function (e) {
         e.preventDefault();
@@ -289,6 +325,26 @@ $(document).ready(function() {
             $('.temp-section').removeClass('temp-section').addClass('hidden-section');
             $this.removeClass('no-click');
         }, 1000);
+    });
+
+    $('.t3').on('click', function (e) {
+        e.preventDefault();
+
+        $('.shadow').fadeIn(300);
+        setTimeout(function () {
+            $('.contact').addClass('shown');
+        }, 200);
+    });
+
+    $('.close-contact').on('click', function () {
+        $('.contact').removeClass('shown');
+        setTimeout(function () {
+            $('.shadow').fadeOut(100);
+        }, 500);
+    });
+
+    $('body').on('click', '.close-form', function () {
+        $('.close-contact').click();
     })
 });
 

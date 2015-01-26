@@ -1,5 +1,5 @@
 body {
-    min-width: 700px;
+    min-width: 860px;
     min-height: 600px;
 }
 
@@ -22,7 +22,7 @@ header {
     z-index: 4;
     display: none;
     opacity: 0;
-    min-width: 700px;
+    min-width: 860px;
 }
 
 header li {
@@ -87,6 +87,13 @@ header .logo img {
     color: #939377;
 }
 
+@media screen and (max-width: 600px) {
+    .con {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
 .con1 .row img {
     max-width: 100%;
     border: 2px solid #ddddb8;
@@ -97,6 +104,14 @@ header .logo img {
     padding-top: 250px;
     padding-left: 175px;
     padding-right: 175px;
+}
+
+@media screen and (max-width: 600px) {
+    .con2 {
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 150px;
+    }
 }
 
 .con2 h1 {
@@ -157,12 +172,22 @@ header .logo img {
     color: #939377;
 }
 
-.signup .close_signup {
+.signup .close_signup, .close-form {
     color: #939377;
     margin-bottom: 12px;
+    display: block;
 }
 
-.signup .error-msg {
+.close-form {
+    margin-top: 24px;
+}
+
+.form-style span {
+    color: #939377;
+}
+
+.form-style .error-msg {
+    display: block;
     color: darkred;
     opacity: 0;
     -webkit-transition: opacity 0.15s ease;
@@ -172,7 +197,11 @@ header .logo img {
     transition: opacity 0.15s ease;
 }
 
-.signup .errors .error-msg {
+.contact .error-msg {
+    margin-bottom: 12px;
+}
+
+.form-style .errors .error-msg {
     opacity: 1;
 }
 
@@ -180,12 +209,37 @@ header .logo img {
     text-decoration: none;
 }
 
+
+.contact form {
+
+    width: 500px;
+    margin: 0 auto;
+}
+.contact img {
+    display: block;
+
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 75px;
+}
+.close-contact {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}
+
 .signup form {
     width: 250px;
     margin: 0 auto;
 }
 
-.signup input {
+.signup input, .contact input, .contact textarea {
     border-radius: 0;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -196,20 +250,20 @@ header .logo img {
     text-align: center;
 }
 
-.signup input:focus {
+.signup input:focus, .contact input:focus, .contact textarea:focus {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     border-color: #ddddb8;
 }
 
-.signup .btn-default {
+.form-style .btn-default {
     border: none;
     background: none;
     color: #939377;
 }
 
-.signup .btn-default:hover, .signup .btn-default:focus, .signup .notif:hover, .signup .notif:focus {
+.form-style .btn-default:hover, .form-style .btn-default:focus, .signup .notif:hover, .signup .notif:focus {
     color: #76765b;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -220,18 +274,18 @@ header .logo img {
     margin-bottom: 20px;
 }
 
-input::-webkit-input-placeholder { /* WebKit browsers */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { /* WebKit browsers */
     color:    #909084 !important;
 }
-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #909084 !important;
-    opacity:  1;
-}
-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+input:-moz-placeholder, textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color:    #909084 !important;
     opacity:  1;
 }
-input:-ms-input-placeholder { /* Internet Explorer 10+ */
+input::-moz-placeholder, textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #909084 !important;
+    opacity:  1;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #909084 !important;
 }
 
@@ -459,9 +513,35 @@ input:-ms-input-placeholder { /* Internet Explorer 10+ */
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.98);
     z-index: 10;
 }
+
+/*======================
+    CONTACT
+======================*/
+
+.contact {
+    z-index: 12;
+    position: fixed;
+    background: #f5f5e2;
+    height: 700px;
+    width: 90%;
+    left: 5%;
+    padding: 100px 50px 50px;
+    text-align: center;
+    top: -700px;
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -webkit-transform 0.4s ease;
+    -ms-transition: -webkit-transform 0.4s ease;
+    -o-transition: -webkit-transform 0.4s ease;
+    transition: -webkit-transform 0.4s ease;
+}
+
+.contact.shown {
+    -webkit-transform: translateY(700px);
+}
+
 
 /*======================
     GALLERY

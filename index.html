@@ -35,7 +35,7 @@
                 <a href="#" class="go t2"><img src="assets/images/txt-about-b.png" alt="About"/></a>
             </li>
             <li class="pull-right">
-                <a href="#" class="stamp-link t3"><img src="assets/images/behance.png" alt="Behance badge"/></a>
+                <a href="#" class="stamp-link"><img src="assets/images/behance.png" alt="Behance badge"/></a>
             </li>
             <li class="pull-right">
                 <a href="#" class="t3"><img src="assets/images/txt-contact-b.png" alt="Contact"/></a>
@@ -267,7 +267,7 @@
         </div>
     </div>
 </div>
-<div class="signup">
+<div class="signup form-style">
     <a href="#" class="close_signup">
         <i class="fa fa-angle-down fa-2x"></i>
     </a>
@@ -286,6 +286,27 @@
         <button type="submit" class="btn btn-default">SUBSCRIBE NOW</button>
     </form>
 
+</div>
+<div class="contact form-style">
+    <a href="#" class="close-contact">
+        <img src="assets/images/txt-close.png" alt="Close"/>
+    </a>
+    <img src="assets/images/txt-contact-hd.png" alt="Contact"/>
+    <form method="post" action="#" id="contact-form">
+        <div class="form-group">
+            <input type="text" class="form-control" id="contact_name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" value=""/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="contact_email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" value=""/>
+        </div>
+
+        <div class="">
+            <textarea name="" class="form-control" id="contact_msg" rows="10" placeholder="Your message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Message'"></textarea>
+        </div>
+        <span class="error-msg hidden-msg">All fields are required.</span>
+
+        <button type="submit" class="btn btn-default">SEND YOUR MESSAGE</button>
+    </form>
 </div>
 <!-- Modal -->
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -36,7 +36,7 @@
 		width: 300px;
 	}
 }
-@media screen and (max-width: 750px) {
+/*@media screen and (max-width: 750px) {
 	.ca-container {
 		width: 400px;
 	}
@@ -44,6 +44,7 @@
 		width: 400px;
 	}
 }
+*/
 .ca-item-main{
 	padding:20px;
 	position:absolute;
