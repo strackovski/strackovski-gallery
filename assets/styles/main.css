@@ -1255,12 +1255,12 @@ footer.f2 a:hover, footer.f2 a:focus {
 
 /* Mobile menu */
 .mobile-menu {
-    width: 200px;
+    width: 160px;
     background: #fff;
     position: fixed;
     top: 64px;
     bottom: 0;
-    right: -200px;
+    right: -160px;
     z-index: 10;
     font-size: 1.1em;
     text-transform: uppercase;
@@ -1295,11 +1295,11 @@ footer.f2 a:hover, footer.f2 a:focus {
 .mobile-menu a { text-decoration: none; }
 
 body.expanded .mobile-menu {
-    -webkit-transform: translateX(-200px);
-    -moz-transform: translateX(-200px);
-    -ms-transform: translateX(-200px);
-    -o-transform: translateX(-200px);
-    transform: translateX(-200px);
+    -webkit-transform: translateX(-160px);
+    -moz-transform: translateX(-160px);
+    -ms-transform: translateX(-160px);
+    -o-transform: translateX(-160px);
+    transform: translateX(-160px);
 }
 
 
@@ -1339,9 +1339,9 @@ body.expanded .mobile-menu {
 body.expanded .mobile-overlay {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translateX(-199px);
-    -moz-transform: translateX(-200px);
-    -ms-transform: translateX(-200px);
-    -o-transform: translateX(-200px);
-    transform: translateX(-199px);
+    -webkit-transform: translateX(-159px);
+    -moz-transform: translateX(-159px);
+    -ms-transform: translateX(-159px);
+    -o-transform: translateX(-159px);
+    transform: translateX(-159px);
 }
