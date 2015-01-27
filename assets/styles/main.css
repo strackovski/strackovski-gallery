@@ -4,6 +4,7 @@ html, body {
 
 body {
     min-height: 600px;
+    font-size: 14px;
     position: relative;
 }
 
@@ -80,6 +81,12 @@ header .logo img {
     margin-bottom: 25px;
 }
 
+@media screen and (max-width: 700px) {
+    .inner-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
 /*======================
     CONTENT
 ======================*/
@@ -108,10 +115,10 @@ header .logo img {
     color: #939377;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .con {
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
@@ -1152,7 +1159,19 @@ footer.f2 a:hover, footer.f2 a:focus {
     z-index: 5;
     background: #fff;
     display: none;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
 
+body.expanded .mobile-nav {
+    -webkit-transform: translateX(-28rem);
+    -moz-transform: translateX(-28rem);
+    -ms-transform: translateX(-28rem);
+    -o-transform: translateX(-28rem);
+    transform: translateX(-28rem);
 }
 
 .mobile-nav .inner-header {
@@ -1255,12 +1274,12 @@ footer.f2 a:hover, footer.f2 a:focus {
 
 /* Mobile menu */
 .mobile-menu {
-    width: 160px;
+    width: 28rem;
     background: #fff;
     position: fixed;
-    top: 64px;
+    top: 0px;
     bottom: 0;
-    right: -160px;
+    right: -28rem;
     z-index: 10;
     font-size: 1.1em;
     text-transform: uppercase;
@@ -1295,11 +1314,11 @@ footer.f2 a:hover, footer.f2 a:focus {
 .mobile-menu a { text-decoration: none; }
 
 body.expanded .mobile-menu {
-    -webkit-transform: translateX(-160px);
-    -moz-transform: translateX(-160px);
-    -ms-transform: translateX(-160px);
-    -o-transform: translateX(-160px);
-    transform: translateX(-160px);
+    -webkit-transform: translateX(-28rem);
+    -moz-transform: translateX(-28rem);
+    -ms-transform: translateX(-28rem);
+    -o-transform: translateX(-28rem);
+    transform: translateX(-28rem);
 }
 
 
@@ -1323,7 +1342,7 @@ body.expanded .mobile-menu {
     position: fixed;
     top: 64px;
     left: 0;
-    right: 0px;
+    width: 100%;
     bottom:0;
     background: rgba(0, 0, 0, 0.7);
     opacity: 0;
@@ -1339,9 +1358,9 @@ body.expanded .mobile-menu {
 body.expanded .mobile-overlay {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translateX(-159px);
-    -moz-transform: translateX(-159px);
-    -ms-transform: translateX(-159px);
-    -o-transform: translateX(-159px);
-    transform: translateX(-159px);
+    -webkit-transform: translateX(-28rem);
+    -moz-transform: translateX(-28rem);
+    -ms-transform: translateX(-28rem);
+    -o-transform: translateX(-28rem);
+    transform: translateX(-28rem);
 }
