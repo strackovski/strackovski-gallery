@@ -238,6 +238,7 @@ $(document).ready(function() {
         if ($this.closest('li').hasClass('active')) return;
 
         if($this.closest('div').hasClass('mobile-menu')) {
+            $('.mobile-nav .logo.go').closest('li').removeClass('active');
             $this.closest('li').addClass('active').siblings().removeClass('active');
         }
         else {
@@ -262,10 +263,10 @@ $(document).ready(function() {
         old_stamp = $('.shown-stamp');
 
         if ($this.hasClass('t0') || $this.hasClass('t1')) {
-
             if($this.hasClass('t0')) {
                 $('.ca-nav').remove();
                 $('#ca-container').contentcarousel();
+                $('.mobile-nav .t0').closest('li').addClass('active');
             }
             f2 = 0;
             brushIt = 1;

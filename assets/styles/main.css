@@ -906,6 +906,7 @@ footer {
     height: 70px;
 }
 
+
 footer a {
     color: #939377;
 }
@@ -925,6 +926,12 @@ footer.f2 a:hover, footer.f2 a:focus {
 
 .shown-footer {
     opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+    .selective {
+        display: none;
+    }
 }
 
 .inner-footer {
