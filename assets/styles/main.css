@@ -1034,6 +1034,20 @@ footer.f2 a:hover, footer.f2 a:focus {
     animation: zoomOut 0.4s ease forwards;
 }
 
+.zoomInAndShow {
+    -webkit-animation: zoomInAndShow 0.4s ease forwards;
+    -moz-animation: zoomInAndShow 0.4s ease forwards;
+    -ms-animation: zoomInAndShow 0.4s ease forwards;
+    -o-animation: zoomInAndShow 0.4s ease forwards;
+    animation: zoomInAndShow 0.4s ease forwards;
+    display: block;
+}
+
+@-webkit-keyframes zoomInAndShow {
+    0% {opacity: 0; -webkit-transform: translateZ(-100px);}
+    100% {opacity: 1; -webkit-transform: translateZ(0);}
+}
+
 /* fadeIn*/
 
 @-webkit-keyframes fadeIn {

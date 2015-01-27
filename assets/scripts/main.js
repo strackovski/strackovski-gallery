@@ -369,13 +369,15 @@ function changeContent() {
     setTimeout(function () {
         old_content.removeClass('zoomOut shown-con');
         window.scrollTo(0, 0);
-        new_content.addClass('fadeInAndShow');
+        //new_content.addClass('fadeInAndShow');
+        new_content.addClass('zoomInAndShow');
         old_header.removeClass('fadeOut shown-header');
         new_header.removeClass('fadeInAndShow').addClass('shown-header');
     }, 500);
 
     setTimeout(function() {
-        new_content.removeClass('fadeInAndShow').addClass('shown-con');
+        //new_content.removeClass('fadeInAndShow').addClass('shown-con');
+        new_content.removeClass('zoomInAndShow').addClass('shown-con');
         footer.addClass('fadeIn').removeClass('fadeOut');
         $('header a').removeClass('no-click');
     }, 1000);
@@ -425,7 +427,8 @@ function changeEverything() {
             brush.addClass('fadeIn');
         }
         old_content.removeClass('zoomOut shown-con');
-        new_content.addClass('fadeInAndShow');
+        //new_content.addClass('fadeInAndShow');
+        new_content.addClass('zoomInAndShow');
 
         old_header.removeClass('fadeOut shown-header');
         new_header.removeClass('fadeInAndShow').addClass('shown-header');
@@ -437,7 +440,8 @@ function changeEverything() {
     }, 1500);
 
     setTimeout(function () {
-        new_content.removeClass('fadeInAndShow').addClass('shown-con');
+        //new_content.removeClass('fadeInAndShow').addClass('shown-con');
+        new_content.removeClass('zoomInAndShow').addClass('shown-con');
         new_header_overlay.removeClass('fadeIn').addClass('shown-ho');
 
         if (brushIt == 1) {
