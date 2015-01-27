@@ -22,6 +22,44 @@
 <img class="bg bg2" src="assets/images/bg2-6.png" alt="bg"/>
 <img src="assets/images/bg1-brush.png" class="brush shown-brush" alt=""/>
 
+<div class="mobile-overlay"></div>
+
+<nav class="mobile-nav">
+    <div class="inner-header">
+        <ul>
+            <li>
+                <a class="logo" href=""><img src="assets/images/sig-1.png" alt="nv3 logo"/></a>
+            </li>
+            <li class="pull-right always-right">
+                <a class="nav-open" href="">
+                    <div class="nav-btn">
+                        <div class="line line1"></div>
+                        <div class="line line2"></div>
+                        <div class="line line3"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="mobile-menu">
+    <ul>
+        <li class="active">
+            <a href="index.html" class="t0 go">Home</a>
+        </li>
+        <li>
+            <a href="work.html" class="t1 go">Gallery</a>
+        </li>
+        <li>
+            <a href="about.html" class="t2 go">About</a>
+        </li>
+        <li>
+            <a href="contact.html" class="t3">Contact</a>
+        </li>
+    </ul>
+</div>
+
 <header class="head0 shown-header">
     <div class="inner-header">
         <ul>
@@ -121,7 +159,7 @@
     </div>
     <div class="con con1">
         <div class="row">
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="Gentleman number 1">
@@ -129,7 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="Gentleman number 2">
@@ -137,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="kakak">
@@ -145,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="pappa">
@@ -153,7 +191,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="pappa">
@@ -161,7 +199,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-3 col-xs-4">
+            <div class="col-sm-3 col-xs-6">
                 <div class="thumb">
                     <img src="assets/images/gent1.jpg" alt="img"/>
                     <div class="preview" data-title="pappa">
@@ -299,12 +337,10 @@
         <div class="form-group">
             <input type="text" class="form-control" id="contact_email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" value=""/>
         </div>
-
         <div class="">
-            <textarea name="" class="form-control" id="contact_msg" rows="10" placeholder="Your message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Message'"></textarea>
+            <textarea name="" class="form-control" id="contact_msg" rows="4" placeholder="Your message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Message'"></textarea>
         </div>
         <span class="error-msg hidden-msg">All fields are required.</span>
-
         <button type="submit" class="btn btn-default">SEND YOUR MESSAGE</button>
     </form>
 </div>
