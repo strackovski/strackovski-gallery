@@ -1155,6 +1155,14 @@ footer.f2 a:hover, footer.f2 a:focus {
 
 }
 
+.mobile-nav .inner-header {
+    height: 40px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.mobile-nav .logo img {
+    height: 40px;
+}
 /*================================
     Nav Button
 ================================*/
@@ -1163,7 +1171,7 @@ footer.f2 a:hover, footer.f2 a:focus {
     position: relative;
     width: 22px;
     height: 15px;
-    margin-top: -30px;
+    margin-top: -28px;
 }
 
 .line {
@@ -1250,7 +1258,7 @@ footer.f2 a:hover, footer.f2 a:focus {
     width: 200px;
     background: #fff;
     position: fixed;
-    top: 100px;
+    top: 64px;
     bottom: 0;
     right: -200px;
     z-index: 10;
