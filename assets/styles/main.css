@@ -40,6 +40,16 @@ header a {
     display: block;
     color: #333;
     padding: 0 25px;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -ms-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+}
+
+header li:not(.active) a:hover {
+    opacity: 0.8;
+
 }
 
 header a.logo {
