@@ -1167,11 +1167,11 @@ footer.f2 a:hover, footer.f2 a:focus {
 }
 
 body.expanded .mobile-nav {
-    -webkit-transform: translateX(-28rem);
-    -moz-transform: translateX(-28rem);
-    -ms-transform: translateX(-28rem);
-    -o-transform: translateX(-28rem);
-    transform: translateX(-28rem);
+    -webkit-transform: translateX(-27rem);
+    -moz-transform: translateX(-27rem);
+    -ms-transform: translateX(-27rem);
+    -o-transform: translateX(-27rem);
+    transform: translateX(-27rem);
 }
 
 .mobile-nav .inner-header {
@@ -1274,12 +1274,12 @@ body.expanded .mobile-nav {
 
 /* Mobile menu */
 .mobile-menu {
-    width: 28rem;
+    width: 27rem;
     background: #fff;
     position: fixed;
     top: 0px;
     bottom: 0;
-    right: -28rem;
+    right: -27rem;
     z-index: 10;
     font-size: 1.1em;
     text-transform: uppercase;
@@ -1314,11 +1314,11 @@ body.expanded .mobile-nav {
 .mobile-menu a { text-decoration: none; }
 
 body.expanded .mobile-menu {
-    -webkit-transform: translateX(-28rem);
-    -moz-transform: translateX(-28rem);
-    -ms-transform: translateX(-28rem);
-    -o-transform: translateX(-28rem);
-    transform: translateX(-28rem);
+    -webkit-transform: translateX(-27rem);
+    -moz-transform: translateX(-27rem);
+    -ms-transform: translateX(-27rem);
+    -o-transform: translateX(-27rem);
+    transform: translateX(-27rem);
 }
 
 
@@ -1358,9 +1358,9 @@ body.expanded .mobile-menu {
 body.expanded .mobile-overlay {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translateX(-28rem);
-    -moz-transform: translateX(-28rem);
-    -ms-transform: translateX(-28rem);
-    -o-transform: translateX(-28rem);
-    transform: translateX(-28rem);
+    -webkit-transform: translateX(-27rem);
+    -moz-transform: translateX(-27rem);
+    -ms-transform: translateX(-27rem);
+    -o-transform: translateX(-27rem);
+    transform: translateX(-27rem);
 }
