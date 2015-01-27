@@ -6,6 +6,7 @@ body {
     min-height: 600px;
     font-size: 14px;
     position: relative;
+    overflow-y: hidden;
 }
 
 ul {
@@ -117,8 +118,8 @@ header .logo img {
 
 @media screen and (max-width: 700px) {
     .con {
-        padding-left: 15px;
-        padding-right: 15px;
+
+        padding: 80px 15px 30px;
     }
 }
 
@@ -129,17 +130,7 @@ header .logo img {
 
 .con2 {
     color: #626262;
-    padding-top: 250px;
-    padding-left: 175px;
-    padding-right: 175px;
-}
 
-@media screen and (max-width: 600px) {
-    .con2 {
-        padding-left: 24px;
-        padding-right: 24px;
-        padding-top: 150px;
-    }
 }
 
 .con2 h1 {
@@ -625,6 +616,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 ======================*/
 .about-section {
     position: relative;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .section {
@@ -646,7 +639,20 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     line-height: 63px;
     margin-left: 10px;
     position: absolute;top:0;
-    right:-24px;
+    right:12px;
+}
+
+@media screen and (max-width: 700px) {
+    .about-section {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .about-section img {
+        height: 40px;
+    }
+    .more {
+        top: -8px;
+    }
 }
 
 .slideOut {
@@ -1175,9 +1181,10 @@ body.expanded .mobile-nav {
 }
 
 .mobile-nav .inner-header {
-    height: 40px;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .mobile-nav .logo img {
     height: 40px;
@@ -1186,15 +1193,25 @@ body.expanded .mobile-nav {
     Nav Button
 ================================*/
 
+.nav-open {
+    display: block;
+    float: right;
+}
+
 .nav-btn {
-    position: relative;
+    /*position: relative;
     width: 22px;
-    height: 15px;
-    margin-top: -28px;
+    height: 40px;
+    background: red;
+    margin-top: -31px;*/
+    position: relative;
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
 }
 
 .line {
-    width: 22px;
+    width: 24px;
     height: 3px;
     background: #777;
     position: absolute;
@@ -1205,11 +1222,11 @@ body.expanded .mobile-nav {
     transition: all 0.2s ease;
 }
 
-.line1 { top: 0; left: 0; }
+.line1 { top: 11px; left: 8px; }
 
 .line2 {
-    top: 6px;
-    left: 0;
+    top: 18px;
+    left: 8px;
     -webkit-transition: opacity 0.2s ease;
     -moz-transition: opacity 0.2s ease;
     -ms-transition: opacity 0.2s ease;
@@ -1217,7 +1234,7 @@ body.expanded .mobile-nav {
     transition: opacity 0.2s ease;
 }
 
-.line3 { top: 12px; left: 0; }
+.line3 { top: 25px; left: 8px; }
 
 .line2.active { opacity: 0; }
 
@@ -1247,28 +1264,28 @@ body.expanded .mobile-nav {
 }
 
 @-webkit-keyframes cross3 {
-    0%{top: 12px; }
-    30%{top: 6px; -webkit-transform: rotate(0deg);}
-    100%{top: 6px; -webkit-transform: rotate(45deg);}
+    0%{top: 25px; }
+    30%{top: 18px; -webkit-transform: rotate(0deg);}
+    100%{top: 18px; -webkit-transform: rotate(45deg);}
 }
 
 @-webkit-keyframes cross1 {
-    0%{top: 0px; }
-    30%{top: 6px; -webkit-transform: rotate(0deg);}
-    100%{top: 6px; -webkit-transform: rotate(-45deg);}
+    0%{top: 11px; }
+    30%{top: 18px; -webkit-transform: rotate(0deg);}
+    100%{top: 18px; -webkit-transform: rotate(-45deg);}
 }
 
 
 @-webkit-keyframes backwards3 {
-    0% {top: 6px; -webkit-transform: rotate(45deg);}
-    30% {top: 6px; -webkit-transform: rotate(0deg);}
-    100% {top: 12px; -webkit-transform: rotate(0deg);}
+    0% {top: 18px; -webkit-transform: rotate(45deg);}
+    30% {top: 18px; -webkit-transform: rotate(0deg);}
+    100% {top: 25px; -webkit-transform: rotate(0deg);}
 }
 
 @-webkit-keyframes backwards1 {
-    0% {top: 6px; -webkit-transform: rotate(-45deg);}
-    30% {top: 6px; -webkit-transform: rotate(0deg);}
-    100% {top: 0px; -webkit-transform: rotate(0deg);}
+    0% {top: 18px; -webkit-transform: rotate(-45deg);}
+    30% {top: 18px; -webkit-transform: rotate(0deg);}
+    100% {top: 11px; -webkit-transform: rotate(0deg);}
 }
 
 
@@ -1290,12 +1307,9 @@ body.expanded .mobile-nav {
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
-.mobile-menu ul {
-    padding-top: 12px;
-}
 
 .mobile-menu li {
-    line-height: 32px;
+    line-height: 38px;
     display: block;
 }
 
@@ -1331,7 +1345,7 @@ body.expanded .mobile-menu {
         display: none !important;
     }
 
-    .shown-ho, header.fadeIn, header.fadeInAndShow, .shown-ho.fadeIn, .shown-ho.fadeInAndShow {
+    .ho, .shown-ho, header.fadeIn, header.fadeInAndShow, .shown-ho.fadeIn, .shown-ho.fadeInAndShow {
         display: none !important;
         opacity: 0 !important;
     }
@@ -1340,7 +1354,7 @@ body.expanded .mobile-menu {
 
 .mobile-overlay {
     position: fixed;
-    top: 64px;
+    top: 50px;
     left: 0;
     width: 100%;
     bottom:0;
