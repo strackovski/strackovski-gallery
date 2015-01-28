@@ -1184,11 +1184,11 @@ footer.f2 a:hover, footer.f2 a:focus {
 }
 
 body.expanded .mobile-nav {
-    -webkit-transform: translateX(-27rem);
-    -moz-transform: translateX(-27rem);
-    -ms-transform: translateX(-27rem);
-    -o-transform: translateX(-27rem);
-    transform: translateX(-27rem);
+    -webkit-transform: translateX(-26rem);
+    -moz-transform: translateX(-26rem);
+    -ms-transform: translateX(-26rem);
+    -o-transform: translateX(-26rem);
+    transform: translateX(-26rem);
 }
 
 .mobile-nav .inner-header {
@@ -1302,12 +1302,12 @@ body.expanded .mobile-nav {
 
 /* Mobile menu */
 .mobile-menu {
-    width: 27rem;
+    width: 26rem;
     background: #fff;
     position: fixed;
     top: 0px;
     bottom: 0;
-    right: -27rem;
+    right: -26rem;
     z-index: 10;
     font-size: 1.1em;
     text-transform: uppercase;
@@ -1322,10 +1322,17 @@ body.expanded .mobile-nav {
 .mobile-menu li {
     line-height: 38px;
     display: block;
+    border-bottom: 1px solid #fff;
+    background: #f7f7f7;
+}
+
+.mobile-menu li.active {
+    background: #fff;
 }
 
 .mobile-menu a {
     display: block;
+    font-size: 14px;
     padding: 6px 24px;
     color: rgba(0, 0, 0, 0.8);
 }
@@ -1339,11 +1346,11 @@ body.expanded .mobile-nav {
 .mobile-menu a { text-decoration: none; }
 
 body.expanded .mobile-menu {
-    -webkit-transform: translateX(-27rem);
-    -moz-transform: translateX(-27rem);
-    -ms-transform: translateX(-27rem);
-    -o-transform: translateX(-27rem);
-    transform: translateX(-27rem);
+    -webkit-transform: translateX(-26rem);
+    -moz-transform: translateX(-26rem);
+    -ms-transform: translateX(-26rem);
+    -o-transform: translateX(-26rem);
+    transform: translateX(-26rem);
 }
 
 
@@ -1383,9 +1390,9 @@ body.expanded .mobile-menu {
 body.expanded .mobile-overlay {
     opacity: 1;
     visibility: visible;
-    -webkit-transform: translateX(-27rem);
-    -moz-transform: translateX(-27rem);
-    -ms-transform: translateX(-27rem);
-    -o-transform: translateX(-27rem);
-    transform: translateX(-27rem);
+    -webkit-transform: translateX(-26rem);
+    -moz-transform: translateX(-26rem);
+    -ms-transform: translateX(-26rem);
+    -o-transform: translateX(-26rem);
+    transform: translateX(-26rem);
 }
