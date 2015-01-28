@@ -117,8 +117,9 @@ function removeLoader() {
 
 }
 
-$(document).ready(function() {
 
+
+$(document).ready(function() {
 
     $('.ca-wrapper').on('swiperight', function (e) {
         $('body').find('.ca-nav-prev').click();
@@ -127,6 +128,7 @@ $(document).ready(function() {
     $('.ca-wrapper').on('swipeleft', function (e) {
         $('body').find('.ca-nav-next').click();
     })
+
     var animating;
     window.scrollTo(0, 0);
     $('#ca-container').contentcarousel();
