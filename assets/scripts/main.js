@@ -457,6 +457,13 @@ $(window).resize(function () {
         $('#ca-container').contentcarousel();
         if(mobilecheck == 1) {
             removeNav();
+            $('.ca-wrapper').on('swiperight', function (e) {
+                $('body').find('.ca-nav-prev').click();
+            })
+
+            $('.ca-wrapper').on('swipeleft', function (e) {
+                $('body').find('.ca-nav-next').click();
+            })
         }
     }
 
