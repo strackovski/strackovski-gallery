@@ -120,11 +120,11 @@ function removeLoader() {
 $(document).ready(function() {
 
 
-    $('.ca-wrapper').on('swipeleft', function (e) {
+    $('.ca-wrapper').on('swiperight', function (e) {
         $('body').find('.ca-nav-prev').click();
     })
 
-    $('.ca-wrapper').on('swiperight', function (e) {
+    $('.ca-wrapper').on('swipeleft', function (e) {
         $('body').find('.ca-nav-next').click();
     })
     var animating;
