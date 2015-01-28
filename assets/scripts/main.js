@@ -119,7 +119,15 @@ function removeLoader() {
 
 $(document).ready(function() {
 
+    $('.ca-wrapper').on('swiperight', function (e) {
+        e.preventDefault();
+        $('body').find('.ca-nav-prev').click();
+    })
 
+    $('.ca-wrapper').on('swipeleft', function (e) {
+        e.preventDefault();
+        $('body').find('.ca-nav-next').click();
+    })
     var animating;
     window.scrollTo(0, 0);
     $('#ca-container').contentcarousel();
@@ -566,15 +574,6 @@ function changeEverything() {
 
 }
 
-$('.ca-wrapper').on('swiperight', function (e) {
-    e.preventDefault();
-    $('body').find('.ca-nav-prev').click();
-})
-
-$('.ca-wrapper').on('swipeleft', function (e) {
-    e.preventDefault();
-    $('body').find('.ca-nav-next').click();
-})
 
 function centerModal() {
     var modalContentHeight = $('.modal-content').height() + 80;
