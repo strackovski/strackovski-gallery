@@ -1396,3 +1396,7 @@ body.expanded .mobile-overlay {
     -o-transform: translateX(-26rem);
     transform: translateX(-26rem);
 }
+
+.hide-nav {
+    opacity: 0 !important;
+}

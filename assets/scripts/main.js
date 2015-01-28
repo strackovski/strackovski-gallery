@@ -89,7 +89,7 @@ $(window).load(function () {
 });
 
 function removeNav() {
-    $('.ca-nav').remove();
+    $('.ca-nav').addClass('hide-nav');
 }
 
 
@@ -123,11 +123,11 @@ $(document).ready(function() {
 
     $('.ca-wrapper').on('swiperight', function (e) {
         $('body').find('.ca-nav-prev').click();
-    })
+    });
 
     $('.ca-wrapper').on('swipeleft', function (e) {
         $('body').find('.ca-nav-next').click();
-    })
+    });
 
     var animating;
     window.scrollTo(0, 0);
@@ -301,6 +301,7 @@ $(document).ready(function() {
             if($this.hasClass('t0')) {
                 $('.ca-nav').remove();
                 $('#ca-container').contentcarousel();
+                removeNav();
                 $('.mobile-nav .t0').closest('li').addClass('active');
             }
             f2 = 0;
