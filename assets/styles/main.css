@@ -358,13 +358,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     BACKGROUND
 ======================*/
 .bg {
-    min-height: 100%;
     min-width: 1024px;
-    width: 100%;
     height: auto;
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 0;
 }
 
@@ -458,7 +458,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     left: 0;
     top: 0;
     position: fixed;
-    
+
     height: 100px;
     opacity: 0;
     -webkit-transform:translateZ(1px);
