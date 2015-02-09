@@ -6,7 +6,6 @@ body {
     min-height: 600px;
     font-size: 14px;
     position: relative;
-
 }
 
 ul {
@@ -47,25 +46,13 @@ header a {
     transition: opacity 0.2s ease;
 }
 
-header li:not(.active) a:hover {
-    opacity: 0.8;
+header li:not(.active) a:hover { opacity: 0.8; }
 
-}
+header a.logo { padding-left: 0; }
 
-header a.logo {
-    padding-left: 0;
-}
+header a.stamp-link { padding-right: 0; }
 
-header a.stamp-link {
-    padding-right: 0;
-}
-header .active a {
-    color: darkred;
-}
-
-header .logo img {
-    height: 50px;
-}
+header .logo img { height: 50px; }
 
 .shown-header {
     opacity: 1;
@@ -135,7 +122,6 @@ header .logo img {
 
 @media screen and (max-width: 700px) {
     .con {
-
         padding: 80px 15px 30px;
     }
 }
@@ -145,14 +131,9 @@ header .logo img {
     border: 2px solid #ddddb8;
 }
 
-.con2 {
-    color: #626262;
+.con2 { color: #626262; }
 
-}
-
-.con2 h1 {
-    margin-bottom: 50px;
-}
+.con2 h1 { margin-bottom: 50px; }
 
 .shown-con {
     display: block;
@@ -201,7 +182,6 @@ header .logo img {
     100% {transform: translateZ(-50px); opacity: 0;}
 }
 
-
 /* show-con */
 @-webkit-keyframes show-con {
     0% {opacity: 0; -webkit-transform: translateZ(-50px);}
@@ -233,7 +213,6 @@ header .logo img {
     100% {opacity: 1; transform: translateZ(0px);}
 }
 
-
 /*======================
     SIGNUP
 ======================*/
@@ -253,9 +232,7 @@ header .logo img {
     font-size: 12px;
 }
 
-.signup .btn {
-    font-size: 12px;
-}
+.signup .btn { font-size: 12px; }
 
 .signup span {
     display: block;
@@ -269,13 +246,9 @@ header .logo img {
     display: block;
 }
 
-.close-form {
-    margin-top: 24px;
-}
+.close-form { margin-top: 24px; }
 
-.form-style span {
-    color: #939377;
-}
+.form-style span { color: #939377; }
 
 .form-style .error-msg {
     display: block;
@@ -288,18 +261,13 @@ header .logo img {
     transition: opacity 0.15s ease;
 }
 
-.contact .error-msg {
-    margin-bottom: 12px;
-}
+.contact .error-msg { margin-bottom: 12px; }
 
-.form-style .errors .error-msg {
-    opacity: 1;
-}
+.form-style .errors .error-msg { opacity: 1; }
 
 .signup .close_signup:hover, .signup .close_signup:focus {
     text-decoration: none;
 }
-
 
 .contact form {
     width: 50%;
@@ -311,12 +279,13 @@ header .logo img {
         width: 100%;
     }
 }
+
 .contact img {
     display: block;
     text-align: center;
-    margin: 0 auto;
-    margin-bottom: 75px;
+    margin: 0 auto 75px auto;
 }
+
 .close-contact {
     position: absolute;
     top: 25px;
@@ -365,32 +334,29 @@ textarea {
     box-shadow: none;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
+.form-group { margin-bottom: 20px; }
 
-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { /* WebKit browsers */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color:    #909084 !important;
 }
-input:-moz-placeholder, textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+
+input:-moz-placeholder, textarea:-moz-placeholder {
     color:    #909084 !important;
     opacity:  1;
 }
-input::-moz-placeholder, textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+
+input::-moz-placeholder, textarea::-moz-placeholder {
     color:    #909084 !important;
     opacity:  1;
 }
-input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explorer 10+ */
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     color:    #909084 !important;
 }
 
-.open_signup {
-    margin-top: -10px;
-}
+.open_signup { margin-top: -10px; }
 
-.open_signup, .close_signup {
-    display: block;
-}
+.open_signup, .close_signup { display: block; }
 
 .fadeUp {
     -webkit-animation: fadeUp 0.4s ease forwards;
@@ -400,6 +366,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     animation: fadeUp 0.4s ease forwards;
 }
 
+/* fadeUp */
 @-webkit-keyframes fadeUp {
     0% {-webkit-transform: translateY(0px); opacity: 1;}
     100% {-webkit-transform: translateY(-30px); opacity: 0;}
@@ -431,13 +398,18 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 ======================*/
 .bg {
     min-width: 1024px;
-    height: auto;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     bottom: 0;
     opacity: 0;
+}
+
+.bgh {
+    background: #000;
+    opacity: 1;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
@@ -469,84 +441,75 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 
 /* hide-bg */
 @-webkit-keyframes hide-bg {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @-moz-keyframes hide-bg {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @-o-keyframes hide-bg {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @-ms-keyframes hide-bg {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 @keyframes hide-bg {
-    0% {opacity: 1;}
-    100% {opacity: 0;}
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 /* show-bg */
-
 @-webkit-keyframes show-bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @-moz-keyframes show-bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @-o-keyframes show-bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @-ms-keyframes show-bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes show-bg {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 
 /*======================
     HEADER OVERLAY (BG)
 ======================*/
-
 .ho {
     width: 100%;
     left: 0;
     top: 0;
     position: fixed;
-
     height: 100px;
     opacity: 0;
     z-index: 3;
 }
 
-.shown-ho {
-    opacity: 1;
-}
+.shown-ho { opacity: 1; }
 
-.ho1 {
-    background: url('../images/bg1-header.png') no-repeat center top fixed;
-}
+.ho1 { background: url('../images/bg1-header.png') no-repeat center top fixed; }
 
-.ho2 {
-    background: url('../images/bg2-header.png') no-repeat center top fixed;
-}
+.ho2 { background: url('../images/bg2-header.png') no-repeat center top fixed; }
 
 .hide-ho {
     -webkit-animation: hide-bg 0.3s ease forwards;
@@ -567,7 +530,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 /*======================
     BRUSH
 ======================*/
-
 .brush {
     position: fixed;
     left: 0;
@@ -578,20 +540,11 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     opacity: 0;
 }
 
-.shown-brush {
-    opacity: 1;
-}
-
-.bgh {
-    background: #000;
-    opacity: 1;
-}
-
+.shown-brush { opacity: 1; }
 
 /*======================
     SHADOWS (dim screens)
 ======================*/
-
 .shadow {
     position: fixed;
     top: 0;
@@ -616,7 +569,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 /*======================
     CONTACT
 ======================*/
-
 .contact {
     z-index: 12;
     position: absolute;
@@ -649,6 +601,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     position: relative;
     margin-bottom: 50px;
 }
+
 .preview {
     position: absolute;
     top: 0;
@@ -680,9 +633,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     border-radius: 50%;
 }
 
-.thumb:hover .preview {
-    opacity: 1;
-}
+.thumb:hover .preview { opacity: 1; }
 
 /*======================
     ABOUT PAGE
@@ -747,7 +698,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
 
 
 /* slideOut */
-
 @-webkit-keyframes slideOut {
     0% {-webkit-transform: translateX(0px); opacity: 1;}
     100% {-webkit-transform: translateX(100px); opacity: 0;}
@@ -897,7 +847,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder { /* Internet Explor
     margin-top: -48px;
     padding: 20px;
     height: 80px;
-    width: 80px;
     background: #101010;
     text-align: center;
     cursor: pointer;
