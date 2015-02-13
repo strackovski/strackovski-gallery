@@ -11,16 +11,19 @@ function replaceHistory(params, title, url) {
     History.replaceState({params: params}, title, '/strackovski-com' + url);
 }
 
+var noAnim = false;
+
 function handleStateChange() {
     var State = History.getState();
     if (manualStateChange === true) {
         var url = State.url.substr(State.url.lastIndexOf('/'), State.url.length);
+        noAnim = true;
         if (url === '/about') {
-            $('.go-about').click();
+            $('.mobile-menu .go-about').click();
         } else if (url === '/gallery') {
-            $('.go-gallery').click();
+            $('.mobile-menu .go-gallery').click();
         } else if (url === '/home') {
-            $('.go-home').click();
+            $('.mobile-menu .go-home').click();
         }
     }
     manualStateChange = true;
@@ -29,7 +32,6 @@ function handleStateChange() {
 var manualStateChange = true;
 
 var History = window.History;
-
 
 var old_header_overlay, new_header_overlay,
     old_bg, new_bg,
@@ -361,9 +363,13 @@ $(document).ready(function() {
                 $('.mobile-menu a.go-about').closest('li').addClass('active');
                 $('footer a.go-about').closest('li').addClass('active');
                 $('.more').css({opacity: 0});
-                setTimeout(function () {
+                if(noAnim) {
                     centerArrow();
-                }, 1800);
+                } else {
+                    setTimeout(function () {
+                        centerArrow();
+                    }, 1800);
+                }
             }
             var att = $('body')[0].getAttribute('data-path');
             changeHistory({}, att, '/' + att);
@@ -530,92 +536,129 @@ $(window).resize(function () {
 });
 
 function changeContent() {
-    old_content.addClass('zoomOut');
-    footer.addClass('fadeOut');
-    old_header.addClass('fadeOut');
-    new_header.addClass('fadeInAndShow');
-
-    setTimeout(function () {
-        old_content.removeClass('zoomOut shown-con');
-        window.scrollTo(0, 0);
-        new_content.addClass('zoomInAndShow');
-        old_header.removeClass('fadeOut shown-header');
-        new_header.removeClass('fadeInAndShow').addClass('shown-header');
-    }, 500);
-
-    setTimeout(function() {
-        new_content.removeClass('zoomInAndShow').addClass('shown-con');
-        footer.addClass('fadeIn').removeClass('fadeOut');
+    if (noAnim) {
+        old_content.removeClass('shown-con');
+        old_header.removeClass('shown-header');
+        new_header.addClass('shown-header');
+        new_content.addClass('shown-con');
         $('header a').removeClass('no-click');
         $('.mobile-menu a').removeClass('no-click');
-    }, 1000);
-}
-
-function changeEverything() {
-    old_content.addClass('zoomOut');
-    footer.addClass('fadeOut');
-
-    if (brushIt === 0) {
-        brush.addClass('fadeOut');
-    }
-    old_header_overlay.addClass('fadeOut');
-
-    // 2
-    setTimeout(function () {
-        old_bg.addClass('fadeOut');
-        window.scrollTo(0, 0);
-    },500);
-
-    // 3
-    setTimeout(function () {
-        old_bg.removeClass('fadeOut shown-bg');
-        new_bg.addClass('fadeInAndShow');
+    } else {
+        old_content.addClass('zoomOut');
+        footer.addClass('fadeOut');
         old_header.addClass('fadeOut');
         new_header.addClass('fadeInAndShow');
 
-    }, 1000);
+        setTimeout(function () {
+            old_content.removeClass('zoomOut shown-con');
+            window.scrollTo(0, 0);
+            new_content.addClass('zoomInAndShow');
+            old_header.removeClass('fadeOut shown-header');
+            new_header.removeClass('fadeInAndShow').addClass('shown-header');
+        }, 500);
 
-    setTimeout(function () {
-        new_bg.addClass('shown-bg').removeClass('fadeInAndShow');
-        if (brushIt === 0) {
-            brush.removeClass('fadeOut shown-brush');
-        }
-        else {
-            brush.addClass('fadeIn');
-        }
-        old_content.removeClass('zoomOut shown-con');
-        new_content.addClass('zoomInAndShow');
+        setTimeout(function() {
+            new_content.removeClass('zoomInAndShow').addClass('shown-con');
+            footer.addClass('fadeIn').removeClass('fadeOut');
+            $('header a').removeClass('no-click');
+            $('.mobile-menu a').removeClass('no-click');
+        }, 1000);
+    }
+    noAnim = false;
+}
 
-        old_header.removeClass('fadeOut shown-header');
-        new_header.removeClass('fadeInAndShow').addClass('shown-header');
-
-        new_header_overlay.addClass('fadeIn');
-        old_header_overlay.removeClass('fadeOut shown-ho');
-    }, 1500);
-
-    setTimeout(function () {
-        new_content.removeClass('zoomInAndShow').addClass('shown-con');
-        new_header_overlay.removeClass('fadeIn').addClass('shown-ho');
-
-        if (brushIt === 1) {
-            brush.removeClass('fadeIn').addClass('shown-brush');
-        }
-        footer.addClass('fadeIn').removeClass('fadeOut');
-
+function changeEverything() {
+    if (noAnim) {
+        old_content.removeClass('shown-con');
         if(f2 === 0) {
             footer.removeClass('f2');
         } else {
             footer.addClass('f2');
         }
+        if (brushIt === 0) {
+            brush.removeClass('shown-brush');
+        }
+
+        old_header_overlay.removeClass('shown-ho');
+        new_header_overlay.addClass('shown-ho');
+        old_bg.removeClass('shown-bg');
+        new_bg.addClass('shown-bg');
+        old_header.removeClass('shown-header');
+        new_header.addClass('shown-header');
+        old_content.removeClass('shown-con');
+        new_content.addClass('shown-con');
         old_stamp.removeClass('shown-stamp');
         new_stamp.addClass('shown-stamp');
-    },2000);
 
-    setTimeout(function () {
-        footer.removeClass('fadeIn');
         $('header a').removeClass('no-click');
         $('.mobile-menu a').removeClass('no-click');
-    }, 2500);
+    } else {
+        old_content.addClass('zoomOut');
+        footer.addClass('fadeOut');
+
+        if (brushIt === 0) {
+            brush.addClass('fadeOut');
+        }
+        old_header_overlay.addClass('fadeOut');
+
+        // 2
+        setTimeout(function () {
+            old_bg.addClass('fadeOut');
+            window.scrollTo(0, 0);
+        },500);
+
+        // 3
+        setTimeout(function () {
+            old_bg.removeClass('fadeOut shown-bg');
+            new_bg.addClass('fadeInAndShow');
+            old_header.addClass('fadeOut');
+            new_header.addClass('fadeInAndShow');
+
+        }, 1000);
+
+        setTimeout(function () {
+            new_bg.addClass('shown-bg').removeClass('fadeInAndShow');
+            if (brushIt === 0) {
+                brush.removeClass('fadeOut shown-brush');
+            }
+            else {
+                brush.addClass('fadeIn');
+            }
+            old_content.removeClass('zoomOut shown-con');
+            new_content.addClass('zoomInAndShow');
+
+            old_header.removeClass('fadeOut shown-header');
+            new_header.removeClass('fadeInAndShow').addClass('shown-header');
+
+            new_header_overlay.addClass('fadeIn');
+            old_header_overlay.removeClass('fadeOut shown-ho');
+        }, 1500);
+
+        setTimeout(function () {
+            new_content.removeClass('zoomInAndShow').addClass('shown-con');
+            new_header_overlay.removeClass('fadeIn').addClass('shown-ho');
+
+            if (brushIt === 1) {
+                brush.removeClass('fadeIn').addClass('shown-brush');
+            }
+            footer.addClass('fadeIn').removeClass('fadeOut');
+
+            if(f2 === 0) {
+                footer.removeClass('f2');
+            } else {
+                footer.addClass('f2');
+            }
+            old_stamp.removeClass('shown-stamp');
+            new_stamp.addClass('shown-stamp');
+        },2000);
+
+        setTimeout(function () {
+            footer.removeClass('fadeIn');
+            $('header a').removeClass('no-click');
+            $('.mobile-menu a').removeClass('no-click');
+        }, 2500);
+    }
+    noAnim = false;
 }
 
 function centerModal() {
