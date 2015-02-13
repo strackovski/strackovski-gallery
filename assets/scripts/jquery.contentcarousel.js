@@ -194,26 +194,6 @@
 							});
 						});
 						
-						// click to open the item(s)
-						/*$el.find('a.ca-more').live('click.contentcarousel', function( event ) {
-							if( cache.isAnimating ) return false;
-							cache.isAnimating	= true;
-							$(this).hide();
-							var $item	= $(this).closest('div.ca-item');
-							aux.openItem( $wrapper, $item, settings, cache );
-							return false;
-						});
-						
-						// click to close the item(s)
-						$el.find('a.ca-close').live('click.contentcarousel', function( event ) {
-							if( cache.isAnimating ) return false;
-							cache.isAnimating	= true;
-							var $item	= $(this).closest('div.ca-item');
-							aux.closeItems( $wrapper, $item, settings, cache );
-							return false;
-						});
-						*/
-						
 						// navigate left
 						$navPrev.bind('click.contentcarousel', function( event ) {
 							if( cache.isAnimating ) return false;
@@ -227,22 +207,7 @@
 							cache.isAnimating	= true;
 							aux.navigate( 1, $el, $wrapper, settings, cache );
 						});
-						
-						// adds events to the mouse
-						/*$el.bind('mousewheel.contentcarousel', function(e, delta) {
-							if(delta > 0) {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( -1, $el, $wrapper, settings, cache );
-							}	
-							else {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( 1, $el, $wrapper, settings, cache );
-							}	
-							return false;
-						});*/
-						
+
 					});
 				}
 			}

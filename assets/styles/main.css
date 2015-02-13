@@ -236,7 +236,7 @@ header .logo img { height: 50px; }
     color: #939377;
 }
 
-.signup .close_signup, .close-form {
+.signup .close-signup, .close-form {
     color: #939377;
     margin-bottom: 12px;
     display: block;
@@ -250,9 +250,8 @@ header .logo img { height: 50px; }
     opacity: 0;
 }
 
-/*.form-style .errors .error-msg { opacity: 1; display: block; }*/
 
-.signup .close_signup:hover, .signup .close_signup:focus {
+.signup .close-signup:hover, .signup .close-signup:focus {
     text-decoration: none;
 }
 
@@ -331,9 +330,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     color:    #909084 !important;
 }
 
-.open_signup { margin-top: -10px; }
+.go-signup { margin-top: -10px; }
 
-.open_signup, .close_signup { display: block; }
+.go-signup, .close-signup { display: block; }
 
 .fadeUp {
     -webkit-animation: fadeUp 0.4s ease forwards;
@@ -570,6 +569,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     color: #909084;
     text-align: left;
     line-height: 1.9;
+}
+
+.legal-modal h2 {
+    margin-bottom: 24px;
 }
 
 @media screen and (max-width: 700px) {

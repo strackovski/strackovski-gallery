@@ -44,7 +44,6 @@
 		width: 400px;
 	}
 }
-
 @media screen and (max-width: 520px) {
 	.ca-container {
 		width: 240px;
@@ -53,7 +52,6 @@
 		width: 240px;
 	}
 }
-
 .ca-item-main{
 	padding:20px;
 	position:absolute;
@@ -75,7 +73,6 @@
 	background:transparent url('../images/gent1.jpg') no-repeat center center;
 	background-size: auto 100%;
 }
-
 .ca-item1 .ca-icon {
 	background:transparent url('../images/gent1.jpg');
 }
