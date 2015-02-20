@@ -1,14 +1,18 @@
 /*global $, window*/
 /*jshint strict:false */
 
+var locale = $('body').attr('data-locale');
+console.log(locale);
 function changeHistory(params, title, url) {
     manualStateChange = false;
-    History.pushState({params: params}, title, '/strackovski-com' + url);
+    //History.pushState({params: params}, title, '/strackovski-com' + url);
+    History.pushState({params: params}, title, '/' + locale + url);
 }
 
 function replaceHistory(params, title, url) {
     manualStateChange = false;
-    History.replaceState({params: params}, title, '/strackovski-com' + url);
+    // History.replaceState({params: params}, title, '/strackovski-com' + url);
+    History.replaceState({params: params}, title, '/' + locale + url);
 }
 
 var noAnim = false;
@@ -74,32 +78,32 @@ $(window).load(function () {
     }
 
     preloadImages(
-        'assets/images/arrow2.png',
-        'assets/images/arrows.png',
-        'assets/images/behance.png',
-        'assets/images/bg1-4.png',
-        'assets/images/bg1-brush.png',
-        'assets/images/bg1-header.png',
-        'assets/images/bg2-6.png',
-        'assets/images/bg2-header.png',
-        'assets/images/dama1.jpg',
-        'assets/images/dama2.jpg',
-        'assets/images/gent1.jpg',
-        'assets/images/gent2.jpg',
-        'assets/images/logo-stamp.png',
-        'assets/images/logo-stamp2.png',
-        'assets/images/sig-1.png',
-        'assets/images/sig-1-bb.png',
-        'assets/images/sig-2.png',
-        'assets/images/ss-spinner.png',
-        'assets/images/txt-about-b.png',
-        'assets/images/txt-about-gg.png',
-        'assets/images/txt-author-b.png',
-        'assets/images/txt-contact-b.png',
-        'assets/images/txt-contact-g.png',
-        'assets/images/txt-gallery-b.png',
-        'assets/images/txt-gallery-bb.png',
-        'assets/images/txt-gallery-g.png'
+        '/web/assets/images/arrow2.png',
+        '/web/assets/images/arrows.png',
+        '/web/assets/images/behance.png',
+        '/web/assets/images/bg1-4.png',
+        '/web/assets/images/bg1-brush.png',
+        '/web/assets/images/bg1-header.png',
+        '/web/assets/images/bg2-6.png',
+        '/web/assets/images/bg2-header.png',
+        '/web/assets/images/dama1.jpg',
+        '/web/assets/images/dama2.jpg',
+        '/web/assets/images/gent1.jpg',
+        '/web/assets/images/gent2.jpg',
+        '/web/assets/images/logo-stamp.png',
+        '/web/assets/images/logo-stamp2.png',
+        '/web/assets/images/sig-1.png',
+        '/web/assets/images/sig-1-bb.png',
+        '/web/assets/images/sig-2.png',
+        '/web/assets/images/ss-spinner.png',
+        '/web/assets/images/txt-about-b.png',
+        '/web/assets/images/txt-about-gg.png',
+        '/web/assets/images/txt-author-b.png',
+        '/web/assets/images/txt-contact-b.png',
+        '/web/assets/images/txt-contact-g.png',
+        '/web/assets/images/txt-gallery-b.png',
+        '/web/assets/images/txt-gallery-bb.png',
+        '/web/assets/images/txt-gallery-g.png'
     );
 });
 

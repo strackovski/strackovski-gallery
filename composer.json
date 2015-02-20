@@ -1,0 +1,21 @@
+{
+    "name": "nv3-www",
+    "version": "1.1.0",
+    "description": "www",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladimir Stračkovski",
+            "email": "vlado@nv3.org",
+            "homepage": "http://www.nv3.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "~1.1",
+        "symfony/yaml": "*",
+        "symfony/translation": "~2.3",
+        "symfony/twig-bridge": "~2.3"
+    }
+}
