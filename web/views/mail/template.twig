@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>Email Template - Geometric</title>
+    <style type="text/css">
+        a:hover { color: #09F !important; text-decoration: underline !important; }
+        a:hover#vw { background-color: #CCC !important; text-decoration: none !important; color:#000 !important; }
+        a:hover#ff { background-color: #6CF !important; text-decoration: none !important; color:#FFF !important; }
+    </style>
+</head>
+<body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #FFFFFF;" bgcolor="#FFFFFF" leftmargin="0">
+<!--100% body table-->
+<table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+<tr>
+<td>
+<!--email container-->
+<table cellspacing="0" border="0" align="center" cellpadding="0" width="624">
+<tr>
+<td>
+<!--header-->
+<table cellspacing="0" border="0" cellpadding="0" width="624">
+    <tr>
+        <td valign="top"> <img  src="http://www.strackovski.com/web/views/mail/images/spacer-top.jpg" height="12" width="624" />
+            <!--top links-->
+            <table cellspacing="0" border="0" cellpadding="0" width="624">
+                <tr>
+                    <td valign="middle" width="221">
+                        <p style="font-size: 12px; font-family: Helvetica, Arial, sans-serif; color: #333; margin: 0px;"><a href="#" style="text-decoration: none; color: #666;">View in browser</a></p>
+                    </td>
+                    <td valign="top" width="285">
+                        <p style="font-size: 12px; font-family: Helvetica, Arial, sans-serif; color: #333; margin: 0px;">
+
+                        </p>
+                    </td>
+                    <td valign="top" width="118">
+                        <p style="text-align: right; font-size: 12px; font-family: Helvetica, Arial, sans-serif; color: #333; margin: 0px;">
+                            <a href="#" style="text-decoration: none; color: #666;">strackovski.com</a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <!--/top links-->
+            <!--line break-->
+            <table cellspacing="0" border="0" cellpadding="0" width="624">
+                <tr>
+                    <td valign="top" width="624">
+                        <p><img  src="http://www.strackovski.com/web/views/mail/images/line-break.jpg" height="10" width="624" /></p>
+                    </td>
+                </tr>
+            </table>
+            <!--/line break-->
+            <!--header content-->
+            {% block header %}
+            {% endblock %}
+            <!--/header content-->
+        </td>
+    </tr>
+</table>
+<!--/header-->
+<!--line break-->
+<table cellspacing="0" border="0" cellpadding="0" width="624">
+    <tr>
+        <td height="50" valign="middle" width="624"><img  src="http://www.strackovski.com/web/views/mail/images/line-break-2.jpg" height="13" width="624" /></td>
+    </tr>
+</table>
+<!--/line break-->
+<!--email content-->
+{% block content %}
+{% endblock %}
+<!--/email content-->
+</td>
+</tr>
+</table>
+<!--/email container-->
+</td>
+</tr>
+</table>
+<!--/100% body table-->
+</body>
+</html>

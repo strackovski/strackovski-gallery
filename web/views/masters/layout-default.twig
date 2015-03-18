@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="{{ page.description }}">
     <meta name="author" content="{{ page.author }}">
 
@@ -17,13 +18,6 @@
 </head>
 
 <body data-path="{{ page.slug }}" data-locale="{{ app.request.locale }}">
-
-    {{ artwork|length }}
-
-    {% for art in artwork %}
-        {{ art }}
-    {% endfor %}
-
     {% block content %}
     {% endblock %}
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery-1.11.1.js"></script>

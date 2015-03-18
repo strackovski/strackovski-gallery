@@ -1,0 +1,67 @@
+{% extends 'mail/template.twig' %}
+
+{% block header %}
+    <table cellspacing="0" border="0" cellpadding="0" width="624">
+        <tr>
+            <td>
+                <h1 style="color: #333; margin: 0px; font-weight: normal; font-size: 60px; font-family: Helvetica, Arial, sans-serif;">{{ mail.title }}</h1>
+                <h2 style="color: #333; margin: 0px; font-weight: normal; font-size: 30px; font-family: Helvetica, Arial, sans-serif;">{{ mail.subtitle }}
+                    <currentmonthname> <currentyear>
+                </h2>
+            </td>
+            <td id="issue" valign="top" style="background-image: url('http://www.strackovski.com/web/assets/images/logo-stamp2.png'); background-color: #fff; background-repeat: no-repeat; background-position: top; width: 109px; height: 109px; background-size: 100%" bgcolor="#fff">
+                <!--logo-->
+                <table width="104" align="right" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="52" valign="bottom">
+                        </td>
+                    </tr>
+                </table>
+                <!--/logo-->
+            </td>
+        </tr>
+    </table>
+{% endblock %}
+
+{% block content %}
+    <table cellspacing="0" border="0" id="email-content" cellpadding="0" width="624">
+        <tr>
+            <td>
+                <!--section 1-->
+                <table cellspacing="0" border="0" cellpadding="0" width="624">
+                    <tr>
+                        <td>
+                            <h2 style="font-size: 36px; font-family: Helvetica, Arial, sans-serif; color: #333 !important; margin: 0px;">{{ main.title }}</h2>
+                            <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;"><img  src="http://www.strackovski.com/web/views/mail/images/spacer-five.jpg" height="5" width="624" /></p>
+                            <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;">{{ main.body }}</p>
+                            <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;"><img  src="http://www.strackovski.com/web/views/mail/images/spacer-five.jpg" height="5" width="624" /></p>
+                        </td>
+                    </tr>
+                </table>
+                <!--/section 1-->
+                <!--line break-->
+                <table cellspacing="0" border="0" cellpadding="0" width="624">
+                    <tr>
+                        <td height="30" valign="middle" width="624"><img  src="http://www.strackovski.com/web/views/mail/images/line-break-2.jpg" height="13" width="624" /></td>
+                    </tr>
+                </table>
+                <!--/line break-->
+                <!--footer-->
+                <table cellspacing="0" border="0" cellpadding="0" width="624">
+                    <tr>
+                        <td>
+                            <p style="font-size: 14px; line-height: 16px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;">You’re receiving this newsletter because you’ve subscribed to our Newsletter.
+                                Not interested anymore?
+                                <a href="#" style="color: #4b98d7; text-decoration: none;">Unsubscribe now.</a>
+                                <br />
+                                <br />
+                                Copyright &copy; 2015 Stevo Strackovski.</p>
+                            <p style="font-size: 17px; line-height: 24px; font-family: Georgia, 'Times New Roman', Times, serif; color: #333; margin: 0px;"><img  src="http://www.strackovski.com/web/views/mail/images/spacer-ten.jpg" height="10" width="624" /></p>
+                        </td>
+                    </tr>
+                </table>
+                <!--/footer-->
+            </td>
+        </tr>
+    </table>
+{% endblock %}

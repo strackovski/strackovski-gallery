@@ -6,6 +6,13 @@ body {
     min-height: 600px;
     font-size: 14px;
     position: relative;
+    background-image: url('../images/bg1-4.png');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body.expanded {
+    overflow: hidden !important;
 }
 
 body.no-anim  *{
@@ -50,7 +57,7 @@ header a {
     transition: opacity 0.2s ease;
 }
 
-header li:not(.active) a:hover { opacity: 0.8; }
+header li:not(.active) a:hover { opacity: 1; }
 
 header a.logo { padding-left: 0; }
 
@@ -78,6 +85,14 @@ header .logo img { height: 50px; }
         padding-left: 15px;
         padding-right: 15px;
     }
+}
+
+.head0 li a {
+    opacity: 0.7;
+}
+
+.head0 .active a {
+    opacity: 1;
 }
 /*======================
     CONTENT
@@ -389,11 +404,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     width: 100%;
     bottom: 0;
     opacity: 0;
+    background-attachment: fixed;
+    display: none;
 }
 
 .bgh {
     background: #000;
     opacity: 1;
+    display: none;
 }
 
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
@@ -522,6 +540,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     width: 100%;
     height: auto;
     opacity: 0;
+    display: none;
 }
 
 .shown-brush { opacity: 1; }
@@ -704,6 +723,9 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     padding-right: 100px;
 }
 
+.about-txt {
+    opacity: 0.7;
+}
 .section {
     display: none;
     opacity: 0;
@@ -1060,6 +1082,13 @@ footer.f2 a:hover, footer.f2 a:focus { color: #444444; }
     width: 80px;
     height: 80px;
     margin: 100px auto;
+    transform-style: preserve-3d;
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
     -webkit-animation: rotateplane 1.8s infinite ease-in-out;
     -moz-animation: rotateplane 1.8s infinite ease-in-out;
     -o-animation: rotateplane 1.8s infinite ease-in-out;
@@ -1262,7 +1291,7 @@ footer.f2 a:hover, footer.f2 a:focus { color: #444444; }
     Mobile nav, Mobile menu
 ================================*/
 .mobile-nav {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
