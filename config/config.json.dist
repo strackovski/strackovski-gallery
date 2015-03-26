@@ -1,0 +1,39 @@
+{
+    "name": "",
+    "author": "",
+    "version": "",
+    "email": {
+        "host": "",
+        "port": "",
+        "username": "",
+        "password": "",
+        "encryption": "",
+        "auth_mode": ""
+    },
+    "pages": {
+        "page1": {
+            "keywords": "",
+            "description": "",
+            "author": "",
+            "title": "",
+            "slug": ""
+        }
+    },
+    "messages": {
+        "message1": {
+            "title": "",
+            "subtitle": "",
+            "main": {
+                "title": "",
+                "body": ""
+            }
+        },
+        "featured": [
+            {
+            "image": "",
+            "title": "",
+            "text": ""
+            }
+        ]
+    }
+}
