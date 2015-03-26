@@ -1,11 +1,12 @@
 {% extends "masters/layout-empty.twig" %}
 
 {% block content %}
-    <div class="error-msg">
-        <h1>Error</h1>
-        <p class="lead-text">An error occurred on the server.</p>
-        <p class="help-msg">
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
 
-        </p>
+    <div class="error-msg">
+        <p class="lead-text">An error occurred on the server.</p>
+        <p class="help-msg"><a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}">Go to home page</a></p>
     </div>
 {% endblock %}
