@@ -37,6 +37,11 @@ $app['cfg'] = $app->share(function(){
     return json_decode($cfg, 1);
 });
 
+$app['subscribers'] = $app->share(function(){
+    $cfg = file_get_contents(dirname(__DIR__) . '/config/subscribers.json');
+    return json_decode($cfg, 1);
+});
+
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app['swiftmailer.options'] = $app['cfg']['email'];
 
@@ -107,6 +112,88 @@ $app->match('/{_locale}/', function ($_locale) use ($app) {
 
     return $app['twig']->render('page.twig', $data);
 })->bind('home');
+
+/**
+ * API Endpoint Interface
+ */
+$app->match('/api/{resource}', function (Request $request, $resource) use ($app) {
+    $result = array();
+    $queries = array('featured', 'all', 'add', 'check', 'remove');
+    $query = strtolower(trim($request->get('q')));
+
+    if (is_null($query) or strlen($query) < 1) {
+        throw new \Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
+    }
+
+    if (!in_array($query, $queries)) {
+        throw new \Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
+    }
+
+    // Get image resources
+    // Return json encoded array
+    if ($resource == 'images') {
+        foreach ($app['cfg']['artwork'] as $i => $artwork) {
+            // Get featured items only
+            if ($query == 'featured') {
+                if ($artwork['featured'] == 1) {
+                    $result[$i]['name'] = $artwork['file'];
+                    $result[$i]['title'] = $artwork['title'];
+                }
+            // Get all items
+            } else if ($query == 'all') {
+                $result[$i]['name'] = $artwork['file'];
+                $result[$i]['title'] = $artwork['title'];
+            }
+
+            return json_encode($result);
+        }
+    // Manage newsletter subscriptions
+    // Return true (1, resource modified) or false (0, not modified)
+    } else if ($resource == 'subscription') {
+        $email = $request->get('email');
+
+        if (is_null($email) or strlen($email) < 1) {
+            return new Response("Invalid parameter 'email'", '500');
+        }
+
+        // Check if email already subscribed
+        if ($query == 'check') {
+            if (in_array($email, $app['subscribers'])) {
+                return 1;
+            } else {
+                return 0;
+            }
+        // Add new subscriber
+        } else if ($query == 'add') {
+            if (in_array($email, $app['subscribers'])) {
+                return 0;
+            } else {
+                $newList = $app['subscribers'];
+                $newList[] = $email;
+                $f = fopen(dirname(__DIR__) . '/config/subscribers.json', 'w');
+                fwrite($f, json_encode($newList));
+                fclose($f);
+
+                return 1;
+            }
+        // Remove existing subscriber
+        } else if ($query == 'remove') {
+            if (in_array($email, $app['subscribers'])) {
+                $emailList = $app['subscribers'];
+                unset($emailList[array_search($email, $app['subscribers'])]);
+                $emailList = array_values($emailList);
+                $f = fopen(dirname(__DIR__) . '/config/subscribers.json', 'w');
+                fwrite($f, json_encode($emailList));
+                fclose($f);
+
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
+    return json_encode($result);
+})->bind('api');
 
 /*
  * Sections routing
