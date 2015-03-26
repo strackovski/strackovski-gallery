@@ -1,0 +1,44 @@
+/*!
+ * Stevo Stračkovski Gallery Web Site (http://www.strackovski.com)
+ * Copyright 2015 Vladimir Stračkovski
+ * All rights reserved (https://github.com/strackovski-art-www)
+ */
+
+/* =======================================================
+ * ERROR PAGE STYLESHEET
+ * ======================================================= */
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url('../images/bg-canvas.png');
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 600px;
+    font-size: 14px;
+    position: relative;
+}
+
+.holder {
+    position: relative;
+    min-height: 100%;
+    margin-bottom: -70px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -o-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transition: 0.4s ease -webkit-transform;
+    -moz-transition: 0.4s ease -moz-transform;
+    -ms-transition: 0.4s ease -ms-transform;
+    -o-transition: 0.4s ease -o-transform;
+    transition: 0.4s ease transform;
+}
+
+.constraint {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+
