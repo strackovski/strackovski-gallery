@@ -7,16 +7,33 @@ var new_content, old_content, mobilecheck;
 var noAnim = false;
 var locale = $('body').attr('data-locale');
 
+/**
+ * Manage history change
+ *
+ * @param params
+ * @param title Page title
+ * @param url Page URL address
+ */
 function changeHistory(params, title, url) {
     manualStateChange = false;
     History.pushState({params: params}, title, '/' + locale + url);
 }
 
+/**
+ * Manage history replacement
+ *
+ * @param params
+ * @param title Page title
+ * @param url Page URL address
+ */
 function replaceHistory(params, title, url) {
     manualStateChange = false;
     History.replaceState({params: params}, title, '/' + locale + url);
 }
 
+/**
+ * Manage history state change
+ */
 function handleStateChange() {
     var State = History.getState();
     if (manualStateChange === true) {
@@ -40,6 +57,9 @@ var manualStateChange = true;
 var History = window.History;
 
 $(window).load(function () {
+    /**
+     * Image pre-loader
+     */
     function preloadImages() {
         var newImages = [], loadedImages = 0;
         var argLength = arguments.length;
@@ -90,13 +110,17 @@ window.mobilecheck = function() {
     return check;
 };
 
+/**
+ * Remove AJAX loader/spinner on load complete
+ */
 function removeLoader() {
+    var modalControls = $('.modal-controls');
     if (mobilecheck()) {
         mobilecheck = 1;
         $('body').addClass('body-mobile');
         removeNav();
-        if (!($('.modal-controls').hasClass('hidden-controls'))) {
-            $('.modal-controls').addClass('hidden-controls');
+        if (!modalControls.hasClass('hidden-controls')) {
+            modalControls.addClass('hidden-controls');
         }
     } else {
         mobilecheck = 0;
@@ -112,26 +136,30 @@ $(document).ready(function () {
     $(window).resize();
     History.Adapter.bind(window, 'statechange', handleStateChange);
 
+    var caWrapper = $('.ca-wrapper');
+    var modalBody = $('.modal-body');
+    var navOpen = $('.nav-open');
     var att = $('body')[0].getAttribute('data-path');
+
     replaceHistory({}, att.charAt(0).toUpperCase() + att.slice(1) + ' | Stevo Strackovski', '/' + att);
     window.scrollTo(0, 0);
 
-    $('.ca-wrapper').on('swiperight', function (e) {
+    caWrapper.on('swiperight', function (e) {
         $('body').find('.ca-nav-prev').click();
     });
-    $('.ca-wrapper').on('swipeleft', function (e) {
+    caWrapper.on('swipeleft', function (e) {
         $('body').find('.ca-nav-next').click();
     });
 
-    $('.modal-body').on('swiperight', function () {
+    modalBody.on('swiperight', function () {
         $('.modal-prev').click();
     });
 
-    $('.modal-body').on('swipeleft', function () {
+    modalBody.on('swipeleft', function () {
         $('.modal-next').click();
     });
 
-    $('.nav-open').on('click', function (e) {
+    navOpen.on('click', function (e) {
         e.preventDefault();
         $('body').toggleClass('expanded');
         $('.nav-open').toggleClass('opened');
@@ -206,7 +234,7 @@ $(document).ready(function () {
         }
     });
 
-    // modal functions
+    // Modal functions
     var currentElement;
     $('.preview').on('click', function(){
         var src = $(this).parent('.thumb').find('img').attr('src');
@@ -299,10 +327,15 @@ $(document).ready(function () {
         $('.legal-box').addClass('shown');
     });
 
+    $('.show-disclaimer').on('click', function (e) {
+        e.preventDefault();
+        $('.shadow').fadeIn(300);
+        $('.disclaimer-box').addClass('shown');
+    });
+
 
     var form = $('#signup-form');
     form.submit(function (e) {
-
         form.find('.btn-default i.fa').toggleClass('fa-angle-right fa-spinner fa-spin');
         e.preventDefault();
 
@@ -509,10 +542,11 @@ $(window).resize(function () {
 });
 
 function centerModal() {
-    var modalContentHeight = $('.modal-content').height() + 80;
+    var modalContent = $('.modal-content');
+    var modalContentHeight = modalContent.height() + 80;
     var windowHeight = $(window).height();
     var m = (windowHeight - modalContentHeight) / 2;
-    $('.modal-content').css('margin-top', m);
+    modalContent.css('margin-top', m);
 }
 
 function centerArrow() {

@@ -15,7 +15,6 @@ body {
     background-image: url('../images/bg-canvas.png');
     background-attachment: fixed;
     background-repeat: repeat;
-    /*background-size: cover;*/
     min-height: 600px;
     font-size: 14px;
     position: relative;
@@ -915,8 +914,10 @@ footer.f2 a:hover, footer.f2 a:focus { color: #444444; }
     display: none;
 }
 
-.legal-box {
+.legal-box,
+.disclaimer-box {
     position: fixed;
+    overflow: auto;
     background: #fff;
     width: 440px;
     height: 500px;
@@ -943,7 +944,8 @@ footer.f2 a:hover, footer.f2 a:focus { color: #444444; }
     }
 }
 
-.legal-box.shown {
+.legal-box.shown,
+.disclaimer-box.shown {
     opacity: 1;
     display: block;
 }
@@ -1091,27 +1093,52 @@ footer.f2 a:hover, footer.f2 a:focus { color: #444444; }
     width: 250px;
 }
 
-.popup-content p {
-    width: 300px;
-    margin: 0 auto;
+.popup-content {
+    padding: 0 25px;
+}
+
+.popup-content h1 {
+    font-size: 1.6em;
     text-align: center;
+}
+
+.popup-content h2 {
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.popup-content ul {
+    list-style: disc;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.popup-content ul li {
+    display: block;
+    font-size: .95em;
+}
+
+.popup-content p {
+    font-size: .95em;
+    text-align: justify;
+    margin: 0 auto;
+    padding-bottom: 10px;
     color: #909084;
 }
 
 @media screen and (max-width: 460px) {
     .popup-content p {
-        padding: 0 20px;
+
     }
 }
 
 .legal-box .popup-content p {
-    width: 380px;
-    text-align: left;
 }
 
 @media screen and (max-width: 440px) {
     .legal-box .popup-content p {
-        width: 260px;
+
     }
 }
 
