@@ -33,7 +33,7 @@
     <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web/icons/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web/icons/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="{{ app.request.getBasePath() }}/web/icons/manifest.json">
-    <link rel="shortcut icon" href="{{ app.request.getBasePath() }}/web/icons/favicon.ico?v=2">
+    <link rel="shortcut icon" href="{{ app.request.getBasePath() }}/web/icons/favicon.ico?v=3">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="{{ app.request.getBasePath() }}/web/icons/mstile-144x144.png">
     <meta name="msapplication-config" content="{{ app.request.getBasePath() }}/web/icons/browserconfig.xml">
@@ -41,7 +41,19 @@
 </head>
 
 <body data-locale="{{ app.request.locale }}">
+    <div class="error-panel">
     {% block content %}
+        {% block header %}
+            <div class="header">
+                <a class="nav-link nav-home" href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}">
+                    <img src="{{ app.request.getBasePath() }}/web/assets/images/ss-logo-stamp.png" alt="S"/>
+                </a>
+            </div>
+            <div class="title">
+                <img src="{{ app.request.getBasePath() }}/web/assets/images/error.png" alt="ERROR"/>
+            </div>
+        {% endblock %}
     {% endblock %}
+    </div>
 </body>
 </html>

@@ -42,3 +42,61 @@ body {
     padding-top: 80px;
 }
 
+.error-panel {
+    background: #fff;
+    width: 60%;
+    min-width: 250px;
+    max-width: 500px;
+    min-height: 400px;
+    padding: 40px 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    box-shadow: rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px;
+    border-radius: 2px;
+}
+
+.title,
+.header,
+.error-msg {
+    text-align: center;
+}
+
+.header,
+.title {
+    margin: 20px 0;
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.header img {
+    width: 120px;
+    opacity: .7;
+}
+
+.title img {
+    width: 150px;
+}
+
+.error-msg p {
+    font-size: 1.4em;
+    line-height: 1em;
+}
+
+.error-msg .lead-text {
+    font-weight: 600;
+}
+
+.error-msg .help-msg a {
+    font-size: .8em;
+    color: #666;
+}
