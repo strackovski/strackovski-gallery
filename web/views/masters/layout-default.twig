@@ -1,32 +1,243 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{ page.title }} | Stevo Strackovski</title>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="utf-8">
+    <title>{{ page.title }} | Stevo Strackovski</title>
     <meta name="description" content="{{ page.description }}">
     <meta name="author" content="{{ page.author }}">
-
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/fonts/font-awesome-4.2.0/css/font-awesome.css"/>
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/reset.css"/>
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/bootstrap.css"/>
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/slider.css"/>
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/jquery.jscrollpane.css"/>
+    <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/modal.css"/>
     <link rel="stylesheet" href="{{ app.request.getBasePath() }}/web/assets/styles/main.css"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ app.request.getBasePath() }}/web/icons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ app.request.getBasePath() }}/web/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="{{ app.request.getBasePath() }}/web/icons/manifest.json">
+    <link rel="shortcut icon" href="{{ app.request.getBasePath() }}/web/icons/favicon.ico?v=3">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ app.request.getBasePath() }}/web/icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="{{ app.request.getBasePath() }}/web/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body data-path="{{ page.slug }}" data-locale="{{ app.request.locale }}">
+
+    {% block navigation %}
+    <div class="desktop-menu">
+        <ul>
+            <li class="pull-right">
+                <a href="#" class="stamp-link"><img src="{{ app.request.getBasePath() }}/web/assets/images/behance.png" alt="Behance badge"/></a>
+            </li>
+            <li class="nav-contact pull-right">
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/contact' }}"><img src="{{ app.request.getBasePath() }}/web/assets/images/contact-a.png" alt="Contact"/></a>
+            </li>
+            <li class="nav-link nav-home {% if active == 'home' %}active{% endif %}">
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}"><img src="{{ app.request.getBasePath() }}/web/assets/images/logo-a.png" alt="Logo"/></a>
+            </li>
+            <li class="nav-link nav-gallery {% if active == 'gallery' %}active{% endif %}">
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}"><img src="{{ app.request.getBasePath() }}/web/assets/images/gallery-a.png" alt="Gallery"/></a>
+            </li>
+            <li class="nav-link nav-about {% if active == 'about' %}active{% endif %}">
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/about' }}"><img src="{{ app.request.getBasePath() }}/web/assets/images/about-a.png" alt="About"/></a>
+            </li>
+        </ul>
+    </div>
+    <nav class="mobile-nav">
+        <div class="inner-header">
+            <ul>
+                <li class="pull-left active">
+                    <a class="nav-link nav-home" href="index.html"><img src="{{ app.request.getBasePath() }}/web/assets/images/logo-a.png" alt="nv3 logo"/></a>
+                </li>
+                <li class="pull-right">
+                    <a class="nav-open" href="#">
+                        <div class="nav-btn">
+                            <div class="line line1"></div>
+                            <div class="line line2"></div>
+                            <div class="line line3"></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+        <ul>
+            <li {% if active == 'home' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}" class="nav-link nav-home ">Home</a>
+            </li>
+            <li {% if active == 'gallery' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}" class="nav-link nav-gallery">Gallery</a>
+            </li>
+            <li {% if active == 'about' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/about' }}" class="nav-link nav-about">About</a>
+            </li>
+            <li {% if active == 'contact' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/contact' }}" class="nav-contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+    {% endblock %}
+
     {% block content %}
     {% endblock %}
+
+    {% block footer %}
+    <footer>
+        <div class="inner-footer">
+            <div class="row">
+                <div class="col-xs-4 footer-nav">
+                    <ul>
+                        <li {% if active == 'gallery' %}class="active"{% endif %}>
+                            <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}" class="nav-link nav-gallery">Gallery</a>
+                        </li>
+                        <li {% if active == 'about' %}class="active"{% endif %}>
+                            <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/about' }}" class="nav-link nav-about">About</a>
+                        </li>
+                        <li {% if active == 'contact' %}class="active"{% endif %}>
+                            <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/contact' }}" class="nav-contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-4 text-center">
+                    <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/newsletter' }}" class="show-signup go-popup">
+                        <i class="fa fa-angle-up fa-2x"></i>
+                        <br/>
+                        GET NOTIFIED
+                            <span class="selective">
+                                ABOUT
+                                <br/>
+                                NEW ADDITIONS
+                            </span>
+                    </a>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <img class="stamp" src="{{ app.request.getBasePath() }}/web/assets/images/logo-stamp.png" alt="Logo Stamp"/>
+                    <div class="legal selective">
+                        <p>
+                            © 2015 Stevo Strackovski
+                        </p>
+                        <p><a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/legal' }}" class="show-legal go-popup">Legal</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="{{ app.request.getBasePath() }}/web/assets/images/dama.jpg" alt=""/>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="col-xs-4">i</div>
+            <div class="col-xs-4 text-center title"></div>
+            <div class="col-xs-4 text-right"><a href="#" class="popover-link" data-toggle="popover" title="Share this" data-content="Share links..."><i class="fa fa-share"></i></a></div>
+        </div>
+
+        <div class="modal-close" data-dismiss="modal"><span>Escape to close <i class="fa fa-times"></i></span></div>
+        <div class="modal-prev modal-controls"><i class="fa fa-angle-left fa-4x"></i></div>
+        <div class="modal-next modal-controls"><i class="fa fa-angle-right fa-4x"></i></div>
+    </div>
+    <div class="first-shadow">
+        <div class="spinner-wrap">
+            <div class="spinner">
+                <img src="{{ app.request.getBasePath() }}/web/assets/images/ss-spinner.png" alt="logo"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="signup signup-box popup-box">
+        <a class="close-popup" href="#"><i class="fa fa-times"></i></a>
+        <h3>Get notified about <span>new additions</span></h3>
+        <div class="popup-content">
+            <form method="post" action="{{ app.request.baseUrl() ~ '/subscribe' }}" id="signup-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="subscribe_email" id="user_email" placeholder="my@email.com" onfocus="this.placeholder = ''" onblur="this.placeholder = 'my@email.com'" value=""/>
+                </div>
+                <button type="submit" class="btn btn-default btn-block btn-load">SUBSCRIBE NOW <i class="fa fa-angle-right btn-icon"></i></button>
+            </form>
+            <div class="success-msg">
+                <p>Thank you for subscribing. You will get notified by email when new art work is added to the gallery.</p>
+            </div>
+            <div class="fail-msg">
+                <p>Something went wrong.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-box contact-box">
+        <a class="close-popup" href="#"><i class="fa fa-times"></i></a>
+        <h3>Contact</h3>
+        <div class="popup-content">
+            <form method="post" action="{{ app.request.baseUrl() ~ '/message' }}" id="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="contact_name" id="contact_name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'" value=""/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="contact_email" id="contact_email" placeholder="Your Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email'" value=""/>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="contact_msg" id="contact_msg" rows="4" placeholder="Your message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Message'"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default btn-block">SEND YOUR MESSAGE <i class="fa fa-angle-right"></i></button>
+            </form>
+            <div class="success-msg">
+                <p>Thank you for your message.</p>
+                <p>We will get back to you as soon as possible.</p>
+            </div>
+            <div class="fail-msg">
+                <p>Something went wrong.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-box legal-box">
+        <a class="close-popup" href="#"><i class="fa fa-times"></i></a>
+        <h3>Legal</h3>
+        <div class="popup-content">
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit essentially unchanged. Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+        </div>
+    </div>
+    <div class="shadow"></div>
+    {% endblock %}
+
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery.contentcarousel.js"></script>
-    <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/bootstrap.js"></script>
-    <script type="text/javascript" src="http://browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
-    <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/main.js"></script>
     <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/jquery.mobile.custom.js"></script>
+    <script type="text/javascript" src="http://browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js"></script>
+    <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="{{ app.request.getBasePath() }}/web/assets/scripts/main.js"></script>
+
 </body>
 </html>
