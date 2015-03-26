@@ -1,5 +1,9 @@
 .idea
 .DS_Store
 vendor/
+config/config.json
 src/
 composer.lock
+npm-debug.log
+node_modules
+web/assets/build
