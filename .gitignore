@@ -8,3 +8,4 @@ composer.lock
 npm-debug.log
 node_modules
 web/assets/build
+web/artwork
