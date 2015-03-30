@@ -2,7 +2,7 @@
 /**
  * Stevo Stračkovski Gallery Web Site (http://www.strackovski.com)
  * Copyright 2015 Vladimir Stračkovski
- * All rights reserved (https://github.com/strackovski-art-www)
+ * All rights reserved (https://github.com/strackovski-gallery-www)
  */
 
 //====================================================
@@ -27,6 +27,7 @@ if (!file_exists(dirname(__DIR__) . '/config/config.json')) {
 $app = new Silex\Application();
 $app['debug'] = false;
 
+// Register URL generator, Twig and Translator providers
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => array(
@@ -52,16 +53,6 @@ $app['subscribers'] = $app->share(function(){
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app['swiftmailer.options'] = $app['cfg']['email'];
 
-// Expose artwork repository
-$app['artwork'] = $app->share(function() {
-    $result = array();
-    for($i = 0; $i < 20; ++$i) {
-        $result[] = 'pch.png';
-    }
-
-    return $result;
-});
-
 /*
  * Error handlers
  */
@@ -79,10 +70,17 @@ $app->error(function (\Exception $e, $code) use ($app) {
 /*
  * Translator configuration
  */
+$app['enabled_locales'] = $app->share(function(){
+    return array('en');
+});
+
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new \Symfony\Component\Translation\Loader\YamlFileLoader());
-    $translator->addResource('yaml', __DIR__.'/locales/en.yml', 'en');
-    $translator->addResource('yaml', __DIR__.'/locales/sl.yml', 'sl');
+    foreach ($app['enabled_locales'] as $enabledLocale) {
+        if (file_exists(__DIR__."/locales/{$enabledLocale}.yml")) {
+            $translator->addResource('yaml', __DIR__."/locales/{$enabledLocale}.yml", "{$enabledLocale}");
+        }
+    }
 
     return $translator;
 }));
@@ -95,7 +93,8 @@ $app->match('/', function(Request $request) use ($app) {
 });
 
 $app->match('/{_locale}/', function ($_locale) use ($app) {
-    if ($_locale != 'en') {
+    if (!in_array($_locale, $app['enabled_locales'])) {
+        // @todo use locale fallback
         return new RedirectResponse('/en/');
     }
 
@@ -113,7 +112,7 @@ $app->match('/{_locale}/', function ($_locale) use ($app) {
  * Sections routing
  */
 $app->match('/{_locale}/{section}', function (Request $request, $_locale, $section) use ($app) {
-    if ($_locale != 'en') {
+    if (!in_array($_locale, $app['enabled_locales'])) {
         return new RedirectResponse('/en/' . $section);
     }
 
@@ -133,6 +132,9 @@ $app->match('/{_locale}/{section}', function (Request $request, $_locale, $secti
 
 /**
  * API Endpoint Interface
+ *
+ * @param string resource Defines type of resource requested
+ * @internal string query Defines type of query (action) to perform on the resource
  */
 $app->match('/{_locale}/api/{resource}', function (Request $request, $resource) use ($app) {
     $result = array();
