@@ -1,5 +1,6 @@
 .idea
 .DS_Store
+.htaccess
 vendor/
 config/config.json
 config/subscribers.json
