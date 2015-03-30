@@ -78,7 +78,9 @@
     <div class="mobile-menu">
         <ul>
             <li {% if active == 'home' %}class="active"{% endif %}>
-                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}" class="nav-link nav-home ">Home</a>
+                <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale }}" class="nav-link nav-home ">
+                    <img src="{{ app.request.getBasePath() }}/web/assets/images/logo-a.png" alt="nv3 logo"/>
+                </a>
             </li>
             <li {% if active == 'gallery' %}class="active"{% endif %}>
                 <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}" class="nav-link nav-gallery">Gallery</a>
@@ -90,6 +92,15 @@
                 <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/contact' }}" class="nav-contact">Contact</a>
             </li>
         </ul>
+
+        <div class="icons">
+            <a href="#" class="stamp-link"><img src="{{ app.request.getBasePath() }}/web/assets/images/behance.png" alt="Behance badge"/></a>
+        </div>
+
+        <div class="mini">
+            <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/legal' }}" class="show-disclaimer go-popup">Disclaimer</a>
+            <a href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/legal' }}" class="show-legal go-popup">Legal</a>
+        </div>
     </div>
     {% endblock %}
 

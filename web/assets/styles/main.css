@@ -273,7 +273,7 @@ body.expanded .mobile-nav {
 /* mobile menu */
 .mobile-menu {
     width: 24rem;
-    background: #fff;
+    background: #121212;
     position: fixed;
     top: 0px;
     bottom: 0;
@@ -300,27 +300,68 @@ body.expanded .mobile-menu {
 .mobile-menu li {
     line-height: 38px;
     display: block;
-    border-bottom: 1px solid #fff;
-    background: #f7f7f7;
+    border-bottom: 1px solid #262626;
+    background: #121212;
 }
 
-.mobile-menu li.active { background: #fff; }
+.mobile-menu li:first-child {
+    text-align: left;
+}
+
+.mobile-menu li:first-child a {
+    padding: 6px 24px 5px 24px;
+}
+
+.mobile-menu li:first-child img {
+    height: 36px;
+    margin: 0 auto;
+}
+
+.mobile-menu li.active { background: #232323; }
 
 .mobile-menu a {
     display: block;
     font-size: 14px;
     padding: 6px 24px;
-    color: rgba(0, 0, 0, 0.8);
+    color: #666;
 }
 
 .mobile-menu a:hover { color: #999; }
 
 .mobile-menu li.active > a {
-    color: #999;
+    color: #666;
     pointer-events: none;
 }
 
 .mobile-menu a { text-decoration: none; }
+
+
+.mobile-menu .mini {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px 15px;
+    border-top: 1px solid #323232;
+    width: 100%;
+}
+
+.mobile-menu .mini a {
+    opacity: .7;
+    font-size: .7em;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+
+.mobile-menu .icons {
+    margin-top: 10px;
+}
+
+.mobile-menu .icons a {
+    font-size: 1.2em;
+    display: inline-block;
+    text-align: center;
+}
 
 body.expanded .mobile-menu {
     -webkit-transform: translateX(-24rem);
