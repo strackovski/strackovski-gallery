@@ -91,7 +91,6 @@ $(window).load(function () {
         '/web/assets/images/author.png',
         '/web/assets/images/behance.png',
         '/web/assets/images/bg-canvas.png',
-        '/web/assets/images/dama.jpg',
         '/web/assets/images/gallery-a.png',
         '/web/assets/images/logo-a.png',
         '/web/assets/images/logo-stamp.png',
@@ -253,7 +252,7 @@ $(document).ready(function () {
         var src = currentElement.parents('.thumb').find('img').attr('src');
 
         if(src === undefined || src === '') {
-            currentElement = $('.con1 .row .col-sm-3').first().find('.preview');
+            currentElement = $('.content-2 .section-1 .row .col-sm-3').first().find('.preview');
             src = currentElement.parents('.thumb').find('img').attr('src');
         }
         $('.modal-body').html('<img src="'+src+'" alt="img" />');
@@ -272,7 +271,7 @@ $(document).ready(function () {
         var src = currentElement.parents('.thumb').find('img').attr('src');
 
         if (src === undefined || src === '') {
-            currentElement = $('.con1 .row .col-sm-3').last().find('.preview');
+            currentElement = $('.content-2 .section-1 .row .col-sm-3').last().find('.preview');
             src = currentElement.parents('.thumb').find('img').attr('src');
         }
         $('.modal-body').html('<img src="'+src+'" alt="img" />');
@@ -443,18 +442,23 @@ $(document).ready(function () {
             $('.signup-box').addClass('fadeDown').removeClass('shown');
         } else {
             popupbox.removeClass('shown');
+            console.log('removed shown')
+            popupbox.scrollTop(300);
+            
+            console.log('scrolltop')
         }
 
         setTimeout(function () {
             popupbox.removeClass('popup-success popup-fail fadeDown');
             popupbox.find('.warned').removeClass('warned');
+
         }, 300);
     });
 
     $(document).on('keyup', function (e) {
         if ($('.popup-box').hasClass('shown') || $('.legal-modal').hasClass('shown')){
             if (e.keyCode == 27) {
-                $('.close-popup').click();
+                $('.popup-box.shown').find('.close-popup').click();
             }
         }
     });
