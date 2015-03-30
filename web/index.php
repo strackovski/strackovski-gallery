@@ -102,6 +102,7 @@ $app->match('/{_locale}/', function ($_locale) use ($app) {
     $data = array();
     $data['artwork'] = $app['cfg']['artwork'];
     $data['page'] = $app['cfg']['pages']['home'];
+    $data['content'] = $app['cfg']['pages'];
     $data['active'] = 'home';
 
     return $app['twig']->render('page.twig', $data);
@@ -124,6 +125,7 @@ $app->match('/{_locale}/{section}', function (Request $request, $_locale, $secti
     $data = array();
     $data['artwork'] = $app['cfg']['artwork'];
     $data['page'] = $app['cfg']['pages'][$section2];
+    $data['content'] = $app['cfg']['pages'];
     $data['active'] = $section2;
 
     return $app['twig']->render('page.twig', $data);
