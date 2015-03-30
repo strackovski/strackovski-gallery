@@ -1,7 +1,9 @@
-strackovski.com - Gallery web site for artist
+strackovski.com - Artist's Gallery Web Site
 =========
-Gallery web site for art content and artist info with email subscription. Includes HTML email template.
-Published at http://www.strackovski.com/
+Gallery web site for art content and artist info with email subscription and basic REST API (used for iOS app). 
+Includes HTML email template. Published at http://www.strackovski.com/
+
+![Screens](http://www.nejoapps.eu/quantity-converter/screens.png)
 
 Made using
 ----
