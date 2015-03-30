@@ -12,6 +12,7 @@ html, body {
 }
 
 body {
+    background-color: #e3e3d3;
     background-image: url('../images/bg-canvas.png');
     background-attachment: fixed;
     background-repeat: repeat;
