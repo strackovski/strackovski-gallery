@@ -4,6 +4,10 @@
  * Copyright 2015 Vladimir Stračkovski
  * All rights reserved (https://github.com/strackovski-art-www)
  */
+
+//====================================================
+// APP BOOTSTRAP & CONTROLLER ROUTES
+//====================================================
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,9 +15,10 @@ use Symfony\Component\HttpFoundation\Response;
 require_once __DIR__.'/../vendor/autoload.php';
 
 if ($_SERVER['REMOTE_ADDR'] != '93.103.107.253') {
-    die('...');
+    return new \Symfony\Component\HttpKernel\Exception\HttpException(404);
 }
 
+// Check for mandatory configuration file
 if (!file_exists(dirname(__DIR__) . '/config/config.json')) {
     header('HTTP/1.0 404 Not found');
     exit('Invalid configuration. Check manual for more information.');
@@ -32,11 +37,13 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale_fallbacks' => array('en'),
 ));
 
+// Expose application configuration
 $app['cfg'] = $app->share(function(){
     $cfg = file_get_contents(dirname(__DIR__) . '/config/config.json');
     return json_decode($cfg, 1);
 });
 
+// Expose subscribers list
 $app['subscribers'] = $app->share(function(){
     $cfg = file_get_contents(dirname(__DIR__) . '/config/subscribers.json');
     return json_decode($cfg, 1);
@@ -45,21 +52,8 @@ $app['subscribers'] = $app->share(function(){
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app['swiftmailer.options'] = $app['cfg']['email'];
 
-$app['artwork'] = $app->share(function(){
-    /*
-    $dir = __DIR__.'/artwork';
-    $result = array();
-    if (file_exists($dir) and is_dir($dir)) {
-        $files = scandir($dir);
-        foreach ($files as $file) {
-            $finfo = pathinfo($dir.'/'.$file);
-            if ($finfo['extension'] == 'jpg' or $finfo['extension'] == 'png') {
-                $result[] = $file;
-            }
-        }
-    }
-    */
-
+// Expose artwork repository
+$app['artwork'] = $app->share(function() {
     $result = array();
     for($i = 0; $i < 20; ++$i) {
         $result[] = 'pch.png';
@@ -83,7 +77,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
 });
 
 /*
- * Translator
+ * Translator configuration
  */
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new \Symfony\Component\Translation\Loader\YamlFileLoader());
@@ -106,17 +100,39 @@ $app->match('/{_locale}/', function ($_locale) use ($app) {
     }
 
     $data = array();
-    $data['artwork'] = $app['artwork'];
+    $data['artwork'] = $app['cfg']['artwork'];
     $data['page'] = $app['cfg']['pages']['home'];
     $data['active'] = 'home';
 
     return $app['twig']->render('page.twig', $data);
 })->bind('home');
 
+
+/*
+ * Sections routing
+ */
+$app->match('/{_locale}/{section}', function (Request $request, $_locale, $section) use ($app) {
+    if ($_locale != 'en') {
+        return new RedirectResponse('/en/' . $section);
+    }
+
+    $section2 = trim(strtolower($section));
+
+    if (!array_key_exists($section2, $app['cfg']['pages'])) {
+        throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+    }
+    $data = array();
+    $data['artwork'] = $app['cfg']['artwork'];
+    $data['page'] = $app['cfg']['pages'][$section2];
+    $data['active'] = $section2;
+
+    return $app['twig']->render('page.twig', $data);
+})->bind('section');
+
 /**
  * API Endpoint Interface
  */
-$app->match('/api/{resource}', function (Request $request, $resource) use ($app) {
+$app->match('/{_locale}/api/{resource}', function (Request $request, $resource) use ($app) {
     $result = array();
     $queries = array('featured', 'all', 'add', 'check', 'remove');
     $query = strtolower(trim($request->get('q')));
@@ -130,7 +146,6 @@ $app->match('/api/{resource}', function (Request $request, $resource) use ($app)
     }
 
     // Get image resources
-    // Return json encoded array
     if ($resource == 'images') {
         foreach ($app['cfg']['artwork'] as $i => $artwork) {
             // Get featured items only
@@ -144,11 +159,8 @@ $app->match('/api/{resource}', function (Request $request, $resource) use ($app)
                 $result[$i]['name'] = $artwork['file'];
                 $result[$i]['title'] = $artwork['title'];
             }
-
-            return json_encode($result);
         }
     // Manage newsletter subscriptions
-    // Return true (1, resource modified) or false (0, not modified)
     } else if ($resource == 'subscription') {
         $email = $request->get('email');
 
@@ -170,9 +182,15 @@ $app->match('/api/{resource}', function (Request $request, $resource) use ($app)
             } else {
                 $newList = $app['subscribers'];
                 $newList[] = $email;
+
+                // Add subscriber email to subscribers list
                 $f = fopen(dirname(__DIR__) . '/config/subscribers.json', 'w');
                 fwrite($f, json_encode($newList));
                 fclose($f);
+
+                // Send confirmation emails
+                $subReq = Request::create('/subscribe', 'POST', array('subscribe_email' => $email, 'include_featured' => 1));
+                $app->handle($subReq, \Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST, false);
 
                 return 1;
             }
@@ -180,6 +198,8 @@ $app->match('/api/{resource}', function (Request $request, $resource) use ($app)
         } else if ($query == 'remove') {
             if (in_array($email, $app['subscribers'])) {
                 $emailList = $app['subscribers'];
+
+                // Remove existing subscriber from subscribers list
                 unset($emailList[array_search($email, $app['subscribers'])]);
                 $emailList = array_values($emailList);
                 $f = fopen(dirname(__DIR__) . '/config/subscribers.json', 'w');
@@ -196,27 +216,6 @@ $app->match('/api/{resource}', function (Request $request, $resource) use ($app)
 })->bind('api');
 
 /*
- * Sections routing
- */
-$app->match('/{_locale}/{section}', function (Request $request, $_locale, $section) use ($app) {
-    if ($_locale != 'en') {
-        return new RedirectResponse('/en/' . $section);
-    }
-
-    $section2 = trim(strtolower($section));
-
-    if (!array_key_exists($section2, $app['cfg']['pages'])) {
-        throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-    }
-    $data = array();
-    $data['artwork'] = $app['artwork'];
-    $data['page'] = $app['cfg']['pages'][$section2];
-    $data['active'] = $section2;
-
-    return $app['twig']->render('page.twig', $data);
-})->bind('section');
-
-/*
  * Newsletter subscription email handler
  */
 $app->match('/subscribe', function (Request $request) use ($app) {
@@ -229,8 +228,8 @@ $app->match('/subscribe', function (Request $request) use ($app) {
     // Build new subscription notification message for list administrator
     $adminNotificationMessage = \Swift_Message::newInstance()
         ->setSubject('New subscriber')
-        ->setFrom(array('info@strackovski.com' => 'Strackovski.com'))
-        ->setTo(array('vlado@nv3.org'))
+        ->setFrom(array($app['cfg']['email']['username'] => ucfirst($app['cfg']['name'])))
+        ->setTo($app['cfg']['admin_email'])
         ->setContentType('text/html')
         ->setBody($clientEmail);
 
@@ -244,7 +243,7 @@ $app->match('/subscribe', function (Request $request) use ($app) {
     // Build subscription confirmation message for client
     $clientConfirmationMessage = \Swift_Message::newInstance()
         ->setSubject($data['mail']['subtitle'])
-        ->setFrom(array('info@strackovski.com' => 'Strackovski.com'))
+        ->setFrom(array($app['cfg']['email']['username'] => ucfirst($app['cfg']['name'])))
         ->setTo(array($clientEmail))
         ->setContentType('text/html')
         ->setBody($body);
@@ -282,10 +281,10 @@ $app->match('/message', function (Request $request) use ($app) {
     // Build message notification email for site administrator
     $adminNotificationMessage = \Swift_Message::newInstance()
         ->setSubject('New message')
-        ->setFrom(array($clientEmail => $senderName))
-        ->setTo(array('vlado@nv3.org'))
+        ->setFrom(array($app['cfg']['email']['username'] => ucfirst($app['cfg']['name'])))
+        ->setTo($app['cfg']['admin_email'])
         ->setContentType('text/html')
-        ->setBody($senderMsg);
+        ->setBody("{$senderName} ({$clientEmail}) wrote: {$senderMsg}");
 
     // Build HTML email template for client message
     $data = $app['cfg']['messages']['contact_confirm'];
@@ -297,7 +296,7 @@ $app->match('/message', function (Request $request) use ($app) {
     // Build client confirmation message
     $clientConfirmationMessage = \Swift_Message::newInstance()
         ->setSubject($data['mail']['subtitle'])
-        ->setFrom(array('info@strackovski.com' => 'Strackovski.com'))
+        ->setFrom(array($app['cfg']['email']['username'] => ucfirst($app['cfg']['name'])))
         ->setTo(array($clientEmail))
         ->setContentType('text/html')
         ->setBody($body);
