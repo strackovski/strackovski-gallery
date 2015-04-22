@@ -3,7 +3,7 @@ strackovski.com - Artist's Gallery Web Site
 Gallery web site for art content and artist info with email subscription and basic REST API (used for iOS app). 
 Includes HTML email template. Published at http://www.strackovski.com/
 
-![Screens](http://www.envee.eu/projects/feats/ssg-git-feat.png)
+![Screens](http://www.envee.eu/projects/feats/ssg-git-feat.gif)
 
 Uses Silex PHP framework for a simple backend solution for routing, content retrieval, etc. Also exposes an API-like interface for querying gallery items and managing mailing subscriptions. Reuse the backend part freely.
 
