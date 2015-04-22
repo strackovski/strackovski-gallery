@@ -193,7 +193,7 @@ $app->match('/{_locale}/api/{resource}', function (Request $request, $resource) 
                 fclose($f);
 
                 // Send confirmation emails
-                $subReq = Request::create('/subscribe', 'POST', array('subscribe_email' => $email, 'include_featured' => 1));
+                $subReq = Request::create('/subscribe', 'POST', array('subscribe_email' => $email, 'include_featured' => 0));
                 $app->handle($subReq, \Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST, false);
 
                 return 1;
