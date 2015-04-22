@@ -12,7 +12,7 @@
                                     <div class="ca-item ca-item-{{ i }}">
                                         <div class="ca-item-main">
                                             <a class="ca-icon nav-link nav-gallery" href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}">
-                                                <img src="{{ app.request.getBasePath() }}/web/artwork/{{ item.file }}" alt=""/>
+                                                <img src="{{ app.request.getBasePath() }}/web/artwork/{{ item.file }}" alt="{{ item.file }}"/>
                                             </a>
                                         </div>
                                     </div>
