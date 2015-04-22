@@ -16,12 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-/*
-if ($_SERVER['REMOTE_ADDR'] != '93.103.107.253') {
-    return new \Symfony\Component\HttpKernel\Exception\HttpException(404);
-}
-*/
-
 // Check for mandatory configuration file
 if (!file_exists(dirname(__DIR__) . '/config/config.json')) {
     header('HTTP/1.0 404 Not found');
