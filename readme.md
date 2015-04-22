@@ -3,7 +3,9 @@ strackovski.com - Artist's Gallery Web Site
 Gallery web site for art content and artist info with email subscription and basic REST API (used for iOS app). 
 Includes HTML email template. Published at http://www.strackovski.com/
 
-![Screens](http://www.nejoapps.eu/quantity-converter/screens.png)
+![Screens](http://www.envee.eu/projects/feats/ssg-git-feat.png)
+
+Uses Silex PHP framework for a simple backend solution for routing, content retrieval, etc. Also exposes an API-like interface for querying gallery items and managing mailing subscriptions. Reuse the backend part freely.
 
 Made using
 ----
@@ -17,7 +19,7 @@ Made using
 Usage
 ----
   * Install application dependencies (defined in composer.json) by running composer install
-  * Install management dependencies (defined in package.json) using npm install (optional, if you wish to run Grunt tasks)
+  * Install asset management dependencies (defined in package.json) using npm install (optional, if you wish to run Grunt tasks)
   * Application parameters must be set in config/config.json. Use config/config.json.dist as template
   * Assets (stylesheets, scripts) can be minified and uglyfied by running Grunt tasks defined in Gruntfile.js
   * Rewrite requests to web/index.php using .htaccess (see htaccess.dist) depending on your server configuration
@@ -25,5 +27,4 @@ Usage
 License
 ----
 Designed and implemented by Vladimir Stračkovski, 2015. Use freely, as long as you use your own
-graphic template. For more information please contact owner of this repository. For content information and license on
-http://www.strackovski.com/ please consult legal notice on the web site.
+graphic template. For content information and license on http://www.strackovski.com/ please consult legal notice on the web site.
