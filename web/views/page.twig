@@ -1,0 +1,82 @@
+{% extends "masters/layout-default.twig" %}
+
+{% block content %}
+    <div class="holder">
+        <div class="constraint">
+            <div class="content content-1 content-landing {% if active == 'home' %}shown-content{% endif %}">
+                <div class="section-1">
+                    <div class="slider-wrap">
+                        <div id="ca-container" class="ca-container no-select">
+                            <div class="ca-wrapper">
+                                {% for i, item in artwork %}
+                                    <div class="ca-item ca-item-{{ i }}">
+                                        <div class="ca-item-main">
+                                            <a class="ca-icon nav-link nav-gallery" href="{{ app.request.baseUrl() ~ '/' ~ app.request.locale ~ '/gallery' }}">
+                                                <img src="{{ app.request.getBasePath() }}/web/artwork/{{ item.file }}" alt="{{ item.file }}"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content content-2 content-gallery {% if active == 'gallery' %}shown-content{% endif %}">
+                <div class="section-1">
+                    <div class="row">
+                        {% for item in artwork %}
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="thumb">
+                                    <img src="{{ app.request.getBasePath() }}/web/artwork/{{ item.file }}" alt="img"/>
+                                    <div class="preview" data-title="{{ item.title }}">
+                                        <i class="fa fa-search fa-2x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="content content-3 content-about {% if active == 'about' %}shown-content{% endif %}">
+                <div class="section-1">
+                    <div class="about-section">
+                        <div class="more">
+                            <a href="#"><img src="{{ app.request.getBasePath() }}/web/assets/images/arrow2.png" alt="More"/></a>
+                        </div>
+                        <div class="section shown-section">
+                            <div class="about-row">
+                                <div class="about-col">
+                                    <h1><img class="about-txt" src="{{ app.request.getBasePath() }}/web/assets/images/author.png" alt="The Author"/></h1>
+                                    {% set text = content.about.text|split('|') %}
+                                    <p class="bold">
+                                        {{ text[0] }}
+                                    </p>
+                                    <p>
+                                        {{ text[1] }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section hidden-section">
+                            <div class="about-row">
+                                <div class="about-col">
+                                    <h1><img class="about-txt" src="{{ app.request.getBasePath() }}/web/assets/images/work.png" alt="The Work"/></h1>
+                                    {% set text = content.work.text|split('|') %}
+                                    <p class="bold">
+                                        {{ text[0] }}
+                                    </p>
+                                    <p>
+                                        {{ text[1] }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

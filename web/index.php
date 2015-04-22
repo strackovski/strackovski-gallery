@@ -16,12 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-/*
-if ($_SERVER['REMOTE_ADDR'] != '93.103.107.253') {
-    return new \Symfony\Component\HttpKernel\Exception\HttpException(404);
-}
-*/
-
 // Check for mandatory configuration file
 if (!file_exists(dirname(__DIR__) . '/config/config.json')) {
     header('HTTP/1.0 404 Not found');
@@ -199,7 +193,7 @@ $app->match('/{_locale}/api/{resource}', function (Request $request, $resource) 
                 fclose($f);
 
                 // Send confirmation emails
-                $subReq = Request::create('/subscribe', 'POST', array('subscribe_email' => $email, 'include_featured' => 1));
+                $subReq = Request::create('/subscribe', 'POST', array('subscribe_email' => $email, 'include_featured' => 0));
                 $app->handle($subReq, \Symfony\Component\HttpKernel\HttpKernelInterface::SUB_REQUEST, false);
 
                 return 1;

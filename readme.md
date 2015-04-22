@@ -5,7 +5,7 @@ Includes HTML email template. Published at http://www.strackovski.com/
 
 ![Screens](http://www.envee.eu/projects/feats/ssg-git-feat.gif)
 
-Uses Silex PHP framework for a simple backend solution for routing, content retrieval, etc. Also exposes an API-like interface for querying gallery items and managing mailing subscriptions. Reuse the backend part freely.
+Uses Silex PHP framework for a simple backend solution for routing, content retrieval, etc. Also exposes an API-like interface for querying gallery items and managing mailing subscriptions. Use the backend part freely, use Twig to design your templates.
 
 Made using
 ----
@@ -27,4 +27,4 @@ Usage
 License
 ----
 Designed and implemented by Vladimir Stračkovski, 2015. Use freely, as long as you use your own
-graphic template. For content information and license on http://www.strackovski.com/ please consult legal notice on the web site.
+graphic template.
