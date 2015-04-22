@@ -4,9 +4,11 @@
  * Copyright 2015 Vladimir Stračkovski
  * All rights reserved (https://github.com/strackovski-gallery-www)
  */
+error_reporting(0);
+ini_set('display_errors', 0);
 
 //====================================================
-// APP BOOTSTRAP & CONTROLLER ROUTES
+// APP BOOTSTRAP & CONTROLLERS
 //====================================================
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,9 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
+/*
 if ($_SERVER['REMOTE_ADDR'] != '93.103.107.253') {
     return new \Symfony\Component\HttpKernel\Exception\HttpException(404);
 }
+*/
 
 // Check for mandatory configuration file
 if (!file_exists(dirname(__DIR__) . '/config/config.json')) {
@@ -155,11 +159,13 @@ $app->match('/{_locale}/api/{resource}', function (Request $request, $resource) 
             // Get featured items only
             if ($query == 'featured') {
                 if ($artwork['featured'] == 1) {
+                    $result[$i]['id'] = $artwork['id'];
                     $result[$i]['name'] = $artwork['file'];
                     $result[$i]['title'] = $artwork['title'];
                 }
             // Get all items
             } else if ($query == 'all') {
+                $result[$i]['id'] = $artwork['id'];
                 $result[$i]['name'] = $artwork['file'];
                 $result[$i]['title'] = $artwork['title'];
             }

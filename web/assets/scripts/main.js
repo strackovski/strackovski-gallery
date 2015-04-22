@@ -347,7 +347,7 @@ $(document).ready(function () {
                 method: 'POST',
                 data: {
                     'action': 'newsletter',
-                    'include_featured': 1,
+                    'include_featured': 0,
                     'subscribe_email': emailVal
                 }
             })
