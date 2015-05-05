@@ -14,7 +14,7 @@ Made using
   * SwiftMailer (http://swiftmailer.org/)
   * Bootstrap v3.2.0 (http://getbootstrap.com)
   * jQuery JavaScript Library v1.11.1 (http://jquery.com/)
-  * Grunt JS for asset compression (http://gruntjs.com/)
+  * Grunt JS for asset management (http://gruntjs.com/)
 
 Usage
 ----
