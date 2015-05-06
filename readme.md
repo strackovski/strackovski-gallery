@@ -12,7 +12,7 @@ Made using
   * Silex PHP framework (http://silex.sensiolabs.org/)
   * Composer (https://getcomposer.org/)
   * SwiftMailer (http://swiftmailer.org/)
-  * Bootstrap v3.2.0 (http://getbootstrap.com)
+  * Bootstrap v3 (http://getbootstrap.com)
   * jQuery JavaScript Library v1.11.1 (http://jquery.com/)
   * Grunt JS for asset management (http://gruntjs.com/)
 
