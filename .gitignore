@@ -2,6 +2,7 @@
 .DS_Store
 .htaccess
 vendor/
+test/
 config/config.json
 config/subscribers.json
 src/
